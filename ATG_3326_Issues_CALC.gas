@@ -1,0 +1,1227 @@
+Program.Sub.ScreenSU.Start
+gui.FormIC..create
+gui.FormIC..caption("Issues Calculator")
+gui.FormIC..size(4140,6135)
+gui.FormIC..position(0,0)
+gui.FormIC..event(unload,form1_unload)
+gui.FormIC..alwaysontop(True)
+gui.FormIC..fontname("Arial")
+gui.FormIC..fontsize(8)
+gui.FormIC..forecolor(0)
+gui.FormIC..fontstyle(,,,,)
+gui.FormIC..BackColor(-2147483633)
+gui.FormIC..controlbox(True)
+gui.FormIC..maxbutton(True)
+gui.FormIC..minbutton(True)
+gui.FormIC..mousepointer(0)
+gui.FormIC..moveable(True)
+gui.FormIC..sizeable(True)
+gui.FormIC..ShowInTaskBar(True)
+gui.FormIC..titlebar(True)
+gui.FormIC.framePart.create(frame)
+gui.FormIC.framePart.caption("")
+gui.FormIC.framePart.size(3690,2115)
+gui.FormIC.framePart.position(100,130)
+gui.FormIC.framePart.visible(True)
+gui.FormIC.framePart.fontname("Arial")
+gui.FormIC.framePart.fontsize(8)
+gui.FormIC.cmdCalc.create(button)
+gui.FormIC.cmdCalc.caption("Calculate")
+gui.FormIC.cmdCalc.visible(True)
+gui.FormIC.cmdCalc.size(855,375)
+gui.FormIC.cmdCalc.zorder(0)
+gui.FormIC.cmdCalc.position(155,5070)
+gui.FormIC.cmdCalc.enabled(True)
+gui.FormIC.cmdCalc.fontname("Arial")
+gui.FormIC.cmdCalc.fontsize(8)
+gui.FormIC.cmdCalc.event(click,cmdcalc_click)
+gui.FormIC.cmdSave.create(button)
+gui.FormIC.cmdSave.caption("Save")
+gui.FormIC.cmdSave.visible(True)
+gui.FormIC.cmdSave.size(855,375)
+gui.FormIC.cmdSave.zorder(0)
+gui.FormIC.cmdSave.position(2845,5070)
+gui.FormIC.cmdSave.enabled(True)
+gui.FormIC.cmdSave.fontname("Arial")
+gui.FormIC.cmdSave.fontsize(8)
+gui.FormIC.cmdSave.event(click,cmdIssueSave_Click)
+gui.FormIC.txtItem.create(textbox,"",True,2040,300,0,140,400,False,0,Arial,8,-2147483643,1)
+gui.FormIC.txtItem.parent("framepart")
+gui.FormIC.cmdItBrws.create(button)
+gui.FormIC.cmdItBrws.caption("^")
+gui.FormIC.cmdItBrws.visible(True)
+gui.FormIC.cmdItBrws.size(285,300)
+gui.FormIC.cmdItBrws.zorder(0)
+gui.FormIC.cmdItBrws.position(2100,400)
+gui.FormIC.cmdItBrws.enabled(True)
+gui.FormIC.cmdItBrws.parent("framepart")
+gui.FormIC.cmdItBrws.fontname("Arial")
+gui.FormIC.cmdItBrws.fontsize(8)
+gui.FormIC.cmdItBrws.event(click,cmditbrws_click)
+gui.FormIC.txtILen.create(textbox,"",True,930,300,0,845,3215,True,0,Arial,8,-2147483643,1)
+gui.FormIC.txtIWid.create(textbox,"",True,930,300,0,2730,3215,True,0,Arial,8,-2147483643,1)
+gui.FormIC.lbl1.create(label,"Part",True,1935,255,1,140,200,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lbl1.parent("framepart")
+gui.FormIC.lbl2.create(label,"Length",True,930,255,1,890,3005,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lbl3.create(label,"Width",True,930,255,1,2700,3005,True,0,Arial,8,-2147483633,0)
+gui.FormIC.txtQty.create(textbox,"",True,930,300,0,170,2530,True,0,Arial,8,-2147483643,1)
+gui.FormIC.lbl4.create(label,"Qty",True,930,255,1,190,2330,True,0,Arial,8,-2147483633,0)
+gui.FormIC.txtITot.create(textbox,"",True,3600,330,0,170,4115,False,0,Arial,8,-2147483643,1)
+gui.FormIC.lbl5.create(label,"Total Quantity (square ft)",True,2160,255,1,170,3895,True,0,Arial,8,-2147483633,0)
+gui.FormIC.txtRev.create(textbox,"",True,495,300,0,2440,400,False,0,Arial,8,-2147483643,1)
+gui.FormIC.txtRev.parent("framepart")
+gui.FormIC.lbl6.create(label,"Rev",True,435,255,1,2440,200,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lbl6.parent("framepart")
+gui.FormIC.txtLoc.create(textbox,"",True,495,300,0,3000,400,False,0,Arial,8,-2147483643,1)
+gui.FormIC.txtLoc.parent("framepart")
+gui.FormIC.lbl7.create(label,"Loc",True,375,255,1,3000,200,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lbl7.parent("framepart")
+gui.FormIC.txtDescr.create(textbox,"",True,3435,300,0,140,1030,False,0,Arial,8,-2147483643,1)
+gui.FormIC.txtDescr.parent("framepart")
+gui.FormIC.lbl8.create(label,"Description",True,1935,255,1,140,830,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lbl8.parent("framepart")
+gui.FormIC.dropdownlistLength.create(dropdownlist)
+gui.FormIC.dropdownlistLength.visible(True)
+gui.FormIC.dropdownlistLength.size(660,330)
+gui.FormIC.dropdownlistLength.zorder(0)
+gui.FormIC.dropdownlistLength.position(170,3215)
+gui.FormIC.dropdownlistLength.enabled(True)
+gui.FormIC.dropdownlistLength.fontname("Arial")
+gui.FormIC.dropdownlistLength.fontsize(8)
+gui.FormIC.dropdownlistLength.event(click,dropdownlistlength_click)
+gui.FormIC.dropdownlistWidth.create(dropdownlist)
+gui.FormIC.dropdownlistWidth.visible(True)
+gui.FormIC.dropdownlistWidth.size(660,330)
+gui.FormIC.dropdownlistWidth.zorder(0)
+gui.FormIC.dropdownlistWidth.position(2050,3215)
+gui.FormIC.dropdownlistWidth.enabled(True)
+gui.FormIC.dropdownlistWidth.fontname("Arial")
+gui.FormIC.dropdownlistWidth.fontsize(8)
+gui.FormIC.dropdownlistWidth.event(click,dropdownlistwidth_click)
+gui.FormIC.lbl9.create(label,"UM",True,525,255,1,200,3005,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lbl10.create(label,"UM",True,525,255,1,2100,3005,True,0,Arial,8,-2147483633,0)
+gui.FormIC.txtUML.create(textbox,"",True,405,300,0,170,3215,True,0,Arial,8,-2147483643,1)
+gui.FormIC.txtUMW.create(textbox,"",True,375,300,0,2065,3215,True,0,Arial,8,-2147483643,1)
+gui.FormIC.lblDim1.create(label,"",True,825,300,1,900,3580,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lblDim2.create(label,"",True,825,300,1,2830,3580,True,0,Arial,8,-2147483633,0)
+gui.FormIC.chkDFAR.create(checkbox)
+gui.FormIC.chkDFAR.caption("DFAR")
+gui.FormIC.chkDFAR.visible(True)
+gui.FormIC.chkDFAR.size(720,255)
+gui.FormIC.chkDFAR.zorder(0)
+gui.FormIC.chkDFAR.position(200,4610)
+gui.FormIC.chkDFAR.enabled(False)
+gui.FormIC.chkDFAR.alignment(0)
+gui.FormIC.chkDFAR.fontname("Arial")
+gui.FormIC.chkDFAR.fontsize(8)
+gui.FormIC.chkUSMELT.create(checkbox)
+gui.FormIC.chkUSMELT.caption("US MELT")
+gui.FormIC.chkUSMELT.visible(True)
+gui.FormIC.chkUSMELT.size(1020,255)
+gui.FormIC.chkUSMELT.zorder(0)
+gui.FormIC.chkUSMELT.position(1420,4610)
+gui.FormIC.chkUSMELT.enabled(False)
+gui.FormIC.chkUSMELT.alignment(0)
+gui.FormIC.chkUSMELT.fontname("Arial")
+gui.FormIC.chkUSMELT.fontsize(8)
+gui.FormIC.chkUSMFG.create(checkbox)
+gui.FormIC.chkUSMFG.caption("USMFG")
+gui.FormIC.chkUSMFG.visible(True)
+gui.FormIC.chkUSMFG.size(930,255)
+gui.FormIC.chkUSMFG.zorder(0)
+gui.FormIC.chkUSMFG.position(2900,4610)
+gui.FormIC.chkUSMFG.enabled(False)
+gui.FormIC.chkUSMFG.alignment(0)
+gui.FormIC.chkUSMFG.fontname("Arial")
+gui.FormIC.chkUSMFG.fontsize(8)
+gui.FormIC.txtSerial.create(textbox,"",True,3435,300,0,140,1665,False,0,Arial,8,-2147483643,1)
+gui.FormIC.txtSerial.parent("framepart")
+gui.FormIC.lbl13.create(label,"Serial Number",True,1935,255,1,140,1450,True,0,Arial,8,-2147483633,0)
+gui.FormIC.lbl13.parent("framepart")
+gui.FormIC.txtQty.tabstop(True)
+gui.FormIC.txtQty.tabindex(1)
+gui.FormIC.txtILen.tabstop(True)
+gui.FormIC.txtILen.tabindex(2)
+gui.FormIC.txtIWid.tabstop(True)
+gui.FormIC.txtIWid.tabindex(3)
+gui.FormIC.cmdCalc.tabstop(True)
+gui.FormIC.cmdCalc.tabindex(4)
+gui.FormIC.cmdSave.tabstop(True)
+gui.FormIC.cmdSave.tabindex(5)
+
+
+
+gui.FormDrops..create
+gui.FormDrops..caption("Create Drops")
+gui.FormDrops..size(4140,6225)
+gui.FormDrops..position(0,0)
+gui.FormDrops..event(unload,form1_unload)
+gui.FormDrops..alwaysontop(True)
+gui.FormDrops..fontname("Arial")
+gui.FormDrops..fontsize(8)
+gui.FormDrops..forecolor(0)
+gui.FormDrops..fontstyle(,,,,)
+gui.FormDrops..BackColor(-2147483633)
+gui.FormDrops..controlbox(True)
+gui.FormDrops..maxbutton(True)
+gui.FormDrops..minbutton(True)
+gui.FormDrops..mousepointer(0)
+gui.FormDrops..moveable(True)
+gui.FormDrops..sizeable(True)
+gui.FormDrops..ShowInTaskBar(True)
+gui.FormDrops..titlebar(True)
+gui.FormDrops.framePart.create(frame)
+gui.FormDrops.framePart.caption("")
+gui.FormDrops.framePart.size(3690,1785)
+gui.FormDrops.framePart.position(100,45)
+gui.FormDrops.framePart.visible(True)
+gui.FormDrops.framePart.fontname("Arial")
+gui.FormDrops.framePart.fontsize(8)
+gui.FormDrops.cmdCalc.create(button)
+gui.FormDrops.cmdCalc.caption("Calculate")
+gui.FormDrops.cmdCalc.visible(True)
+gui.FormDrops.cmdCalc.size(855,375)
+gui.FormDrops.cmdCalc.zorder(0)
+gui.FormDrops.cmdCalc.position(155,5145)
+gui.FormDrops.cmdCalc.enabled(True)
+gui.FormDrops.cmdCalc.fontname("Arial")
+gui.FormDrops.cmdCalc.fontsize(8)
+gui.FormDrops.cmdCalc.event(click,cmddrpcalc_click)
+gui.FormDrops.cmdSave.create(button)
+gui.FormDrops.cmdSave.caption("Save")
+gui.FormDrops.cmdSave.visible(True)
+gui.FormDrops.cmdSave.size(855,375)
+gui.FormDrops.cmdSave.zorder(0)
+gui.FormDrops.cmdSave.position(2845,5145)
+gui.FormDrops.cmdSave.enabled(True)
+gui.FormDrops.cmdSave.fontname("Arial")
+gui.FormDrops.cmdSave.fontsize(8)
+gui.FormDrops.cmdSave.event(click,cmdDropSave_click)
+gui.FormDrops.txtItem.create(textbox,"",True,2040,300,0,95,400,False,0,Arial,8,-2147483643,1)
+gui.FormDrops.txtItem.parent("framepart")
+gui.FormDrops.txtILen.create(textbox,"",True,930,300,0,905,3120,True,0,Arial,8,-2147483643,1)
+gui.FormDrops.txtIWid.create(textbox,"",True,930,300,0,2700,3120,True,0,Arial,8,-2147483643,1)
+gui.FormDrops.lbl1.create(label,"Part",True,1935,255,1,140,200,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.lbl1.parent("framepart")
+gui.FormDrops.lbl2.create(label,"Length",True,930,255,1,900,2910,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.lbl3.create(label,"Width",True,930,255,1,2700,2910,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.txtQty.create(textbox,"",True,930,300,0,155,2415,True,0,Arial,8,-2147483643,1)
+gui.FormDrops.lbl4.create(label,"Qty",True,930,255,1,155,2200,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.txtITot.create(textbox,"",True,3435,375,0,155,4040,False,0,Arial,8,-2147483643,1)
+gui.FormDrops.lbl5.create(label,"Total Quantity (square ft)",True,2160,255,1,155,3830,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.txtRev.create(textbox,"",True,495,300,0,2440,400,False,0,Arial,8,-2147483643,1)
+gui.FormDrops.txtRev.parent("framepart")
+gui.FormDrops.lbl6.create(label,"Rev",True,435,255,1,2440,200,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.lbl6.parent("framepart")
+gui.FormDrops.txtLoc.create(textbox,"",True,495,300,0,3000,400,False,0,Arial,8,-2147483643,1)
+gui.FormDrops.txtLoc.parent("framepart")
+gui.FormDrops.lbl7.create(label,"Loc",True,375,255,1,3000,200,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.lbl7.parent("framepart")
+gui.FormDrops.txtSerial.create(textbox,"",True,3435,300,0,95,1090,False,0,Arial,8,-2147483643,1)
+gui.FormDrops.txtSerial.parent("framepart")
+gui.FormDrops.lbl8.create(label,"Serial",True,1935,255,1,95,875,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.lbl8.parent("framepart")
+gui.FormDrops.dropdownlistLength.create(dropdownlist)
+gui.FormDrops.dropdownlistLength.visible(True)
+gui.FormDrops.dropdownlistLength.size(660,330)
+gui.FormDrops.dropdownlistLength.zorder(0)
+gui.FormDrops.dropdownlistLength.position(155,3120)
+gui.FormDrops.dropdownlistLength.enabled(True)
+gui.FormDrops.dropdownlistLength.fontname("Arial")
+gui.FormDrops.dropdownlistLength.fontsize(8)
+gui.FormDrops.dropdownlistLength.event(click,droplength_click)
+gui.FormDrops.dropdownlistWidth.create(dropdownlist)
+gui.FormDrops.dropdownlistWidth.visible(True)
+gui.FormDrops.dropdownlistWidth.size(660,330)
+gui.FormDrops.dropdownlistWidth.zorder(0)
+gui.FormDrops.dropdownlistWidth.position(2000,3120)
+gui.FormDrops.dropdownlistWidth.enabled(True)
+gui.FormDrops.dropdownlistWidth.fontname("Arial")
+gui.FormDrops.dropdownlistWidth.fontsize(8)
+gui.FormDrops.dropdownlistWidth.event(click,dropwidth_click)
+gui.FormDrops.lbl9.create(label,"UM",True,525,255,1,2060,2910,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.lbl10.create(label,"UM",True,525,255,1,155,2910,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.txtUML.create(textbox,"",True,405,300,0,155,3120,True,0,Arial,8,-2147483643,1)
+gui.FormDrops.txtUMW.create(textbox,"",True,375,300,0,2000,3120,True,0,Arial,8,-2147483643,1)
+gui.FormDrops.lblDim1.create(label,"",True,885,255,1,915,3415,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.lblDim2.create(label,"",True,885,255,1,2775,3415,True,0,Arial,8,-2147483633,0)
+gui.FormDrops.chkDFAR.create(checkbox)
+gui.FormDrops.chkDFAR.caption("DFAR")
+gui.FormDrops.chkDFAR.visible(True)
+gui.FormDrops.chkDFAR.size(765,255)
+gui.FormDrops.chkDFAR.zorder(0)
+gui.FormDrops.chkDFAR.position(155,4600)
+gui.FormDrops.chkDFAR.enabled(False)
+gui.FormDrops.chkDFAR.alignment(0)
+gui.FormDrops.chkDFAR.fontname("Arial")
+gui.FormDrops.chkDFAR.fontsize(8)
+gui.FormDrops.chkUSMELT.create(checkbox)
+gui.FormDrops.chkUSMELT.caption("US MELT")
+gui.FormDrops.chkUSMELT.visible(True)
+gui.FormDrops.chkUSMELT.size(1035,255)
+gui.FormDrops.chkUSMELT.zorder(0)
+gui.FormDrops.chkUSMELT.position(1400,4600)
+gui.FormDrops.chkUSMELT.enabled(False)
+gui.FormDrops.chkUSMELT.alignment(0)
+gui.FormDrops.chkUSMELT.fontname("Arial")
+gui.FormDrops.chkUSMELT.fontsize(8)
+gui.FormDrops.chkUSMFG.create(checkbox)
+gui.FormDrops.chkUSMFG.caption("USMFG")
+gui.FormDrops.chkUSMFG.visible(True)
+gui.FormDrops.chkUSMFG.size(870,255)
+gui.FormDrops.chkUSMFG.zorder(0)
+gui.FormDrops.chkUSMFG.position(2745,4600)
+gui.FormDrops.chkUSMFG.enabled(False)
+gui.FormDrops.chkUSMFG.alignment(0)
+gui.FormDrops.chkUSMFG.fontname("Arial")
+gui.FormDrops.chkUSMFG.fontsize(8)
+gui.FormDrops.txtQty.tabstop(True)
+gui.FormDrops.txtQty.tabindex(1)
+gui.FormDrops.txtILen.tabstop(True)
+gui.FormDrops.txtILen.tabindex(2)
+gui.FormDrops.txtIWid.tabstop(True)
+gui.FormDrops.txtIWid.tabindex(3)
+gui.FormDrops.cmdCalc.tabstop(True)
+gui.FormDrops.cmdCalc.tabindex(4)
+gui.FormDrops.cmdSave.tabstop(True)
+gui.FormDrops.cmdSave.tabindex(5)
+
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.Open.Declare(Boolean,False)
+Variable.Global.lRow.Declare(Long,0)
+Program.Sub.Preflight.End
+
+
+Program.Sub.Main.Start
+
+
+V.Local.sSel.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sLot.Declare(String)
+V.Local.sBPrt.Declare(String)
+V.Local.srev.Declare(String)
+V.Local.sDrp.Declare(String)
+V.Local.sData.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sUMSel.Declare(String)
+V.Local.sLoc.Declare(String)
+V.Local.sdesc.Declare(String)
+V.Local.sSerial.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sDimA.Declare(String)
+V.Local.sDimB.declare(String)
+V.Local.bExists.Declare(Boolean)
+
+V.Local.iElement.Declare(Long)
+V.Local.iLen.Declare(Long)
+V.Local.lCount.Declare(Long)
+V.Local.lDct.Declare(Long)
+V.Local.lDecCt.Declare(Long)
+V.Local.lRev.Declare(Long)
+V.Local.lRow.Declare(Long)
+
+Gui.FormIC.cmdSave.Enabled(false)
+
+F.ODBC.Connection!conA.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+'--------------------Populate Hook to change text on [Script 1] and [Script 2] buttons-------------------------------
+F.Intrinsic.Control.If(V.Caller.Hook,=,28810)
+	V.Passed.000260.Set("UM Calculator")
+	V.Passed.000261.Set("Create Drops")
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+'-------------------------------------------[Script 1] hook--------------------------------------------------------
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,28860)
+F.Intrinsic.Control.If(V.Passed.000002,<>,"")
+F.Intrinsic.Math.Sub(V.passed.SELECTED-ROW,1,V.Local.lRow)
+
+F.Intrinsic.BDF.Load("AUX001","AUX001")
+	F.Intrinsic.BDF.TextMatrix("AUX001",1,V.Local.lRow,V.Local.sPart)
+	F.Intrinsic.BDF.TextMatrix("AUX001",2,V.Local.lRow,V.Local.sRev)
+	F.Intrinsic.BDF.TextMatrix("AUX001",3,V.Local.lRow,V.Local.sLoc)
+	F.Intrinsic.BDF.TextMatrix("AUX001",4,V.Local.lRow,V.Local.sdesc)
+
+F.Intrinsic.String.Trim(V.Local.sPart,V.Local.sPart)
+
+Gui.FormIC.txtItem.Text(V.Local.sPart)
+Gui.FormIC.txtRev.Text(V.Local.srev)
+Gui.FormIC.txtLoc.Text(V.Local.sLoc)
+Gui.FormIC.txtDescr.Text(V.Local.sdesc)
+
+Gui.FormIC.dropdownlistLength.AddItem("in")
+Gui.FormIC.dropdownlistLength.AddItem("ft")
+Gui.FormIC.dropdownlistLength.AddItem("M")
+
+Gui.FormIC.dropdownlistWidth.AddItem("in")
+Gui.FormIC.dropdownlistWidth.AddItem("ft")
+Gui.FormIC.dropdownlistWidth.AddItem("M")
+
+
+Gui.FormIC.txtQty.Visible(false)
+Gui.FormIC.txtUML.Visible(false)
+Gui.FormIC.txtUMW.Visible(false)
+Gui.FormIC.txtILen.Visible(false)
+Gui.FormIC.txtIWid.Visible(false)
+Gui.FormIC.txtITot.Visible(false)
+Gui.FormIC.dropdownlistLength.Visible(false)
+Gui.FormIC.dropdownlistWidth.Visible(false)
+Gui.FormIC.lbl5.Visible(false)
+Gui.FormIC.lbl4.Visible(false)
+Gui.FormIC.lbl3.Visible(false)
+Gui.FormIC.lbl2.Visible(false)
+Gui.FormIC.lbl9.Visible(false)
+Gui.FormIC.lbl10.Visible(false)
+
+Gui.FormIC..AlwaysOnTop(true)
+F.Intrinsic.Control.Do
+	F.Intrinsic.API.SetWindowPositions(V.Caller.Handle,V.Screen.FormIC.HWnd,3)
+F.Intrinsic.Control.Loop
+
+Gui.FormIC..Show
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(Form1_unload)
+F.Intrinsic.Control.EndIf
+
+'-------------------------------------------[Script 2] hook--------------------------------------------------------
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,28862)
+
+F.Intrinsic.Control.If(V.Passed.000002,<>,"")
+F.Intrinsic.Math.Sub(V.passed.SELECTED-ROW,1,V.Global.lRow)
+
+F.Intrinsic.BDF.Load("AUX001","AUX001")
+	F.Intrinsic.BDF.TextMatrix("AUX001",1,V.Global.lRow,V.Local.sPart)
+
+F.Intrinsic.String.Trim(V.Local.sPart,V.Local.sPart)
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,"Issrec.txt",V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.Control.CallSub(Form1_unload)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sData)
+		F.Intrinsic.String.Split(V.Local.sData,",",V.Local.sText)
+	F.Intrinsic.Control.EndIf
+		V.Local.sText.RedimPreserve(0,14)
+
+		V.Local.sSerial.Set(V.Local.sText(8))
+		F.Intrinsic.String.Split(V.Local.sSerial,".",V.Local.sSerial)
+		V.Local.sSerial.RedimPreserve(0,1)
+		F.Intrinsic.String.Len(V.Local.sSerial,V.Local.iLen)
+
+
+F.Intrinsic.String.Concat("select MAX(SERIAL_NUMBER) as LOT from ITEM_MASTER where PART='",V.Local.sPart,"'and left(SERIAL_NUMBER,",V.Local.iLen,")='",V.Local.sSerial(0),"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldVal!LOT,<>,"")
+			V.Local.sLot.Set(V.ODBC.conA!rstB.FieldVal!LOT)
+				F.Intrinsic.String.Split(V.Local.sLot,".",V.Local.sLot)
+					V.Local.sLot.RedimPreserve(0,1)
+'					F.Intrinsic.String.Trim(V.Local.sLot(0),V.Local.sLot(0))
+					F.Intrinsic.Math.Add(V.Local.sLot(1),1,V.Local.lRev)
+					F.Intrinsic.String.Format(V.Local.lRev,"000",V.Local.srev)
+		F.Intrinsic.Control.Else
+			V.Local.sRev.Set("001")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.conA!rstB.Close
+	
+	F.Intrinsic.String.Concat(V.Local.sSerial,".",V.Local.srev,V.Local.sSerial)
+
+	Gui.FormDrops.txtItem.Text(V.Local.sPart)
+	Gui.FormDrops.txtRev.Text(V.Local.sText(1))
+	Gui.FormDrops.txtLoc.Text(V.Local.sText(2))
+F.Intrinsic.Control.If(V.Local.stext(11),=,"X")
+	Gui.FormDrops.chkDFAR.Value(1)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Local.sText(12),=,"X")
+	Gui.FormDrops.chkUSMELT.Value(1)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Local.sText(13),=,"X")
+	Gui.FormDrops.chkUSMFG.Value(1)
+F.Intrinsic.Control.EndIf
+	Gui.FormDrops.txtSerial.Text(V.Local.sSerial)
+	Gui.FormDrops.txtQty.Text("1")
+
+
+	Gui.FormDrops.dropdownlistLength.AddItem("in")
+	Gui.FormDrops.dropdownlistLength.AddItem("ft")
+	Gui.FormDrops.dropdownlistLength.AddItem("M")
+
+	Gui.FormDrops.dropdownlistWidth.AddItem("in")
+	Gui.FormDrops.dropdownlistWidth.AddItem("ft")
+	Gui.FormDrops.dropdownlistWidth.AddItem("M")
+
+F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Local.sPart,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldValTrim!PROP_CODE,<>,"")
+			V.Local.sDima.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_1)
+			V.Local.sDimB.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.conA!rstB.Close
+
+Gui.FormDrops.lblDim1.create(label,V.Local.sDima,True,885,255,1,915,3415,True,0,Arial,8,-2147483633,0)
+Gui.FormDrops.lblDim2.create(label,V.Local.sDimB,True,885,255,1,2775,3415,True,0,Arial,8,-2147483633,0)
+
+Gui.FormDrops..AlwaysOnTop(true)
+F.Intrinsic.Control.Do
+	F.Intrinsic.API.SetWindowPositions(V.Caller.Handle,V.Screen.FormDrops.HWnd,3)
+F.Intrinsic.Control.Loop
+
+Gui.FormDrops..Show
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(Form1_unload)
+F.Intrinsic.Control.EndIf
+
+'------------------ Post Save Hook 28842----------------------------------
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,"28840")
+	V.Passed.777777.Set(1)
+	F.Intrinsic.BDF.Load("AUX001","AUX001")
+	F.Intrinsic.Control.CallSub(Issue)
+	V.Passed.777777.Set(0)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(Form1_unload)
+
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+
+program.sub.cmdcalc_click.start
+
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTotal.Declare(Float)
+
+V.Local.sTotal.Declare(String)
+
+
+F.Intrinsic.Control.If(V.Screen.FormIC!txtUML.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.FormIC!txtUMW.Text,<>,"")
+
+F.Intrinsic.Control.If(V.Screen.FormIC!txtQty.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.FormIC!txtILen.Text,<>,"")
+		F.Intrinsic.Control.If(V.Screen.FormIC!txtIWid.text,<>,"")
+
+
+F.Intrinsic.Control.If(V.Screen.FormIC!txtUML.Text,=,"ft")
+	V.Local.fLength.Set(V.Screen.FormIC!txtILen.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.FormIC!txtUML.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.FormIC!txtILen.Text,12,V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.FormIC!txtUML.Text,=,"M")
+	F.Intrinsic.Math.mult(V.Screen.FormIC!txtILen.Text,3.2808399,V.Local.fLength)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FormIC!txtUMW.Text,=,"ft")
+	V.Local.fWidth.Set(V.Screen.FormIC!txtIWid.text)
+F.Intrinsic.Control.ElseIf(V.Screen.FormIC!txtUMW.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.FormIC!txtIWid.text,12,V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.FormIC!txtUMW.Text,=,"M")
+	F.Intrinsic.Math.Mult(V.Screen.FormIC!txtIWid.text,3.2808399,V.Local.fWidth)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Math.Mult(V.Screen.FormIC!txtQty.Text,V.Local.fLength,V.Local.fWidth,V.Local.fTotal)
+F.Intrinsic.String.Format(V.Local.fTotal,"0.0000",V.Local.sTotal)
+	
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Please enter width")
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please enter Length")
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Please enter Quantity")
+F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Gui.FormIC.txtITot.Text(V.Local.sTotal)
+
+program.sub.cmdcalc_click.end
+
+
+program.sub.form1_unload.start
+
+F.Intrinsic.Control.If(V.Global.Open,=,True)
+	F.ODBC.Connection!conA.CloseRecordsets
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!conA.Close
+
+F.Intrinsic.Control.End
+
+program.sub.form1_unload.end
+
+
+program.sub.cmditbrws_click.start
+
+V.Local.sFile.Declare(String)
+V.Local.sdata.Declare(String)
+V.Local.sSelA.Declare(String)
+V.Local.sSelB.Declare(String)
+V.Local.sSelC.Declare(String)
+V.Local.sValue.Declare(String)
+
+V.Local.spart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sUM.Declare(String)
+V.Local.sDimA.Declare(String)
+V.Local.sDimB.Declare(String)
+
+V.Local.sPSel.Declare(String)
+V.Local.sUMSel.Declare(String)
+V.Local.sDesc.Declare(String)
+V.Local.sTot.Declare(String)
+
+V.Local.sSel.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sFormat.Declare(String)
+V.Local.sAlign.Declare(String)
+V.Local.sRod.Declare(String)
+
+V.Local.lWidths.Declare(Long)
+V.Local.lROw.Declare(Long)
+
+F.Intrinsic.Math.Sub(V.passed.SELECTED-ROW,1,V.Local.lRow)
+	F.Intrinsic.BDF.TextMatrix("AUX001",1,V.Local.lRow,V.Local.sPsel)
+	F.Intrinsic.String.Trim(V.Local.sPSel,V.Local.sPSel)
+
+
+F.Intrinsic.String.Split("Part                      Rev*!*Locn*!*Lot*!*Bin*!*Heat*!*Serial*!*Description*!*Length*!*UM*!*Width*!*UM*!*On Hand (sq ft)*!*DFAR*!*USMELT*!*USMFG","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("2000*!*500*!*1500*!*1000*!*1500*!*3000*!*3000*!*1000*!*300*!*1000*!*300*!*1000*!*500*!*500*!*500","*!*",V.Local.lWidths)
+F.Intrinsic.string.Split("*!**!**!**!**!**!**!*0.0000*!**!*0.0000*!**!*0.0000*!**!**!*","*!*",V.Local.sFormat)
+
+V.Local.sSelA.Set("select distinct ITEM_MASTER.PART, ITEM_MASTER.LOCATION,ITEM_MASTER.LOT,ITEM_MASTER.BIN,ITEM_MASTER.HEAT,ITEM_MASTER.SERIAL_NUMBER, INVENTORY_MSTR.DESCRIPTION")
+V.Local.sSelB.Set(" ATG_3326_ITMST_LEN_WIDTH.LENGTH,ATG_3326_ITMST_LEN_WIDTH.LENGTH_UM, ATG_3326_ITMST_LEN_WIDTH.WIDTH,ATG_3326_ITMST_LEN_WIDTH.WIDTH_UM,ITEM_MASTER.QUANTITY,DFAR,USMELT,USMFG")
+V.Local.sSelC.Set("from ITEM_MASTER inner join ATG_3326_ITMST_LEN_WIDTH on ITEM_MASTER.PART=ATG_3326_ITMST_LEN_WIDTH.PART and ITEM_MASTER.SERIAL_NUMBER=ATG_3326_ITMST_LEN_WIDTH.SERIAL left outer join INVENTORY_MSTR on ATG_3326_ITMST_LEN_WIDTH.PART=INVENTORY_MSTR.PART")
+'V.Local.sSelC.Set("from ITEM_MASTER left outer join ATG_3326_ITMST_LEN_WIDTH on ITEM_MASTER.PART=ATG_3326_ITMST_LEN_WIDTH.PART and ITEM_MASTER.SERIAL_NUMBER=ATG_3326_ITMST_LEN_WIDTH.SERIAL left outer join INVENTORY_MSTR on ATG_3326_ITMST_LEN_WIDTH.PART=INVENTORY_MSTR.PART")
+F.Intrinsic.String.Concat(V.Local.sSelA,", ",V.Local.sSelB," ",V.Local.sSelC," where ITEM_MASTER.PART='",V.Local.sPsel,"'order by ITEM_MASTER.PART,ITEM_MASTER.SERIAL_NUMBER",V.Local.sSel)
+F.Intrinsic.UI.Browser("Select Part","conA",V.Local.sSel,V.Local.sTitles,V.Local.lWidths,18500,7000,V.Local.sFormat,V.Local.sAlign,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			F.Intrinsic.String.Left(V.Local.sRet(0),17,V.Local.spart)
+			F.Intrinsic.String.Right(V.Local.sRet(0),3,V.Local.sRev)
+
+			Gui.FormIC.txtItem.Text(V.Local.spart.Trim)
+			Gui.FormIC.txtRev.Text(V.Local.sRev.Trim)
+			Gui.FormIC.txtSerial.Text(V.Local.sret(5).Trim)
+			Gui.FormIC.txtLoc.Text(V.Local.sRet(1).Trim)
+			Gui.FormIC.txtDescr.Text(V.Local.sRet(6).Trim)
+			Gui.FormIC.txtQty.Text("1")
+
+			Gui.FormIC.txtUML.Text(V.Local.sRet(8).Trim)
+			Gui.FormIC.txtUMW.Text(V.Local.sRet(10).Trim)
+'			Gui.FormIC.txtIWid.Text(V.Local.sRet(9).Trim)
+
+		F.Intrinsic.Control.If(V.Local.sRet(12),=,"X")
+			Gui.FormIC.chkDFAR.Value(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sRet(13),=,"X")
+			Gui.FormIC.chkUSMELT.Value(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sRet(14),=,"X")
+			Gui.FormIC.chkUSMFG.Value(1)
+		F.Intrinsic.Control.EndIf
+
+		V.Global.Open.Set(True)
+
+		F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,"Issrec.txt",V.Local.sFile)
+			F.Intrinsic.String.Concat(V.Local.spart.Trim,",",V.Local.sRev,",",V.Local.sRet(1),",","QTY",",",V.Passed.000008,",",V.Local.sRet(2),",",V.Local.sRet(3).Trim,",",V.Local.sRet(4).Trim,",",V.Local.sRet(5).Trim,",I,Y",",",V.Local.sRet(12),",",V.Local.sRet(13),",",V.Local.sRet(14),V.Local.sdata)
+		F.Intrinsic.File.String2File(V.Local.sfile,V.Local.sdata)
+
+
+F.Intrinsic.String.Concat("select * from ATG_3326_TMP_ISSUES where TRMNL='",V.Caller.Terminal,"' and PART='",V.Local.spart.Trim,"' and ROW='",V.Passed.SELECTED-ROW,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRO("rstA",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstA.EOF,=,False)
+		Gui.FormIC.txtILen.Text(V.ODBC.conA!rstA.FieldVal!LENGTH)
+		Gui.FormIC.txtIWid.Text(V.ODBC.conA!rstA.FieldVal!WIDTH)
+		Gui.FormIC.txtITot.Text(V.ODBC.conA!rstA.FieldVal!TOTAL)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Concat("insert into ATG_3326_TMP_ISSUES values('",V.Caller.Terminal,"','",V.Local.spart.Trim,"','",V.Local.sRet(5).trim,"','0','",V.Local.sRet(9).trim,"','0','",V.Passed.SELECTED-ROW,"')",V.Local.sdata)
+		F.ODBC.Connection!conA.Execute(V.Local.sdata)
+	F.Intrinsic.Control.EndIf
+F.ODBC.conA!rstA.Close
+
+F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Local.sPart,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldValTrim!PROP_CODE,<>,"")
+			V.Local.sDima.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_1)
+			V.Local.sDimB.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.conA!rstB.Close
+
+Gui.FormIC.lblDim1.create(label,V.Local.sDima,True,825,300,1,900,3580,True,0,Arial,8,-2147483633,0)
+Gui.FormIC.lblDim2.create(label,V.Local.sDimB,True,825,300,1,2830,3580,True,0,Arial,8,-2147483633,0)
+
+			Gui.FormIC.cmdSave.Enabled(True)
+
+Gui.FormIC.txtQty.Visible(True)
+Gui.FormIC.txtUML.Visible(True)
+Gui.FormIC.txtUMW.Visible(True)
+Gui.FormIC.txtILen.Visible(True)
+Gui.FormIC.txtIWid.Visible(True)
+Gui.FormIC.txtITot.Visible(True)
+Gui.FormIC.dropdownlistLength.Visible(True)
+Gui.FormIC.dropdownlistWidth.Visible(True)
+Gui.FormIC.lbl5.Visible(True)
+Gui.FormIC.lbl4.Visible(True)
+Gui.FormIC.lbl3.Visible(True)
+Gui.FormIC.lbl2.Visible(True)
+Gui.FormIC.lbl9.Visible(True)
+Gui.FormIC.lbl10.Visible(True)
+
+	F.Intrinsic.Control.EndIf
+
+
+program.sub.cmditbrws_click.end
+
+
+program.sub.cmdDropSave_click.start
+Gui.FormDrops.cmdSave.Enabled(false)
+
+V.Local.sFile.Declare(String)
+V.Local.sDropLog.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.sSel.Declare(String)
+V.Local.sSelB.Declare(String)
+V.Local.spart.Declare(String)
+V.Local.sFle.Declare(String)
+V.Local.sData.Declare(String)
+V.Local.sApply.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sLen.Declare(String)
+V.Local.sTot.Declare(String)
+V.Local.sDFAR.Declare(String)
+V.Local.sUSM.Declare(String)
+V.Local.sMfg.Declare(String)
+
+V.Local.fWidth.Declare(Float)
+V.Local.fLen.Declare(Float)
+V.Local.fTot.Declare(Float)
+V.Local.iSize.Declare(Long)
+V.Local.lRptID.Declare(Long)
+V.Local.lLine.Declare(Long)
+V.Local.lRet.Declare(Long)
+
+V.Local.sLoc.Declare(String)
+V.Local.sLot.Declare(String)
+V.Local.sBin.Declare(String)
+V.Local.sHeat.Declare(String)
+V.Local.sSer.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sIssue.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sParams.Declare(String)
+V.Local.sseq.Declare(String)
+V.Local.sLine.Declare(String)
+V.Local.lRev.Declare(Long)
+V.Local.lData.Declare(Long)
+V.Local.sRev.Declare(String)
+V.Local.sSerial.Declare(String)
+V.Local.sDesc.Declare(String)
+V.Local.sLabelLoc.Declare(String)
+V.Local.sDir.Declare(String)
+V.Local.sUpdate.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.sValues.Declare(String)
+V.Local.sGABPrgm.Declare(String)
+V.Local.sDescription.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sIssueFile.Declare(String)
+V.Local.sLog.Declare(String)
+
+F.Intrinsic.String.Concat(V.System.Temp,"\TempIss.txt",V.Local.stemp)
+V.Local.sPart.Set(V.Screen.FormDrops!txtItem.Text)
+'F.Intrinsic.String.Split(V.Screen.FormDrops!txtSerial.Text,".",V.Local.sSerial)
+
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,"Issrec.txt",V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.Control.CallSub(Form1_unload)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sData)
+		F.Intrinsic.String.Split(V.Local.sData,",",V.Local.sText)
+	F.Intrinsic.Control.EndIf
+		V.Local.sText.RedimPreserve(0,14)
+		V.Local.sSerial.Set(V.Local.sText(8))
+
+'F.Intrinsic.String.Concat("select Location, Lot, Bin, Heat   from Item_Master where Part='",V.Local.sPart.Trim,"' and Serial_Number='",V.Local.sSerial(0),"'",V.Local.sSel)
+F.Intrinsic.String.Concat("select Location, Lot, Bin, Heat   from Item_Master where Part='",V.Local.sPart.Trim,"' and Serial_Number='",V.Local.sSerial,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenLocalRecordsetRO("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstSel.EOF,=,False)
+		V.Local.sLoc.Set(V.ODBC.conA!rstSel.FieldValTrim!Location)
+		V.Local.sLot.Set(V.ODBC.conA!rstSel.FieldValTrim!Lot)
+		V.Local.sBin.Set(V.ODBC.conA!rstSel.FieldValTrim!Bin)
+		V.Local.sHeat.Set(V.ODBC.conA!rstSel.FieldValTrim!Heat)
+F.Intrinsic.Control.endif
+F.ODBC.conA!rstSel.Close
+
+
+V.Local.sQty.Set(V.Screen.FormDrops!txtITot.Text)
+V.Local.fLen.Set(V.Screen.FormDrops!txtILen.Text)
+V.Local.fWidth.Set(V.Screen.FormDrops!txtIWid.Text)
+
+F.Intrinsic.Control.CallSub(Convert_drop,"Length",V.Local.fLen,"Width",V.Local.fWidth,"LUM","")
+
+V.Local.fLen.Set(V.Args.Length)
+V.Local.fWidth.Set(V.Args.Width)
+V.Local.fTot.Set(V.Screen.FormDrops!txtITot.Text)
+F.Intrinsic.Control.If(V.Screen.FormDrops!chkDFAR.Value,=,1)
+	V.Local.sData.Set("X")
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.FormDrops!chkUSMELT.Value,=,1)
+	V.Local.sUSM.Set("X")
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Screen.FormDrops!chkUSMFG.Value,=,1)
+	V.Local.sMfg.Set("X")
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.String.Concat("select * from ATG_3326_ITMST_LEN_WIDTH where PART='",V.Local.sPart.Trim,"'and LOCN='",V.Local.sLoc.Trim,"'and LOT='",V.Local.sLot.Trim,"'and BIN='",V.Local.sBin.Trim,"'and SERIAL='",V.Screen.FormDrops!txtSerial.Text,"'",V.Local.sSelB)
+F.ODBC.Connection!conA.OpenRecordsetRW("rstU",V.Local.sSelB)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstU.EOF,=,True)
+		F.ODBC.conA!rstU.AddNew
+			F.ODBC.conA!rstU.Set!PART(V.Local.spart.Trim)
+			F.ODBC.conA!rstU.Set!LOCN(V.Local.sLoc.Trim)
+			F.ODBC.conA!rstU.Set!LOT(V.local.sLot.Trim)
+			F.ODBC.conA!rstU.Set!BIN(V.local.sBin.Trim)
+			F.ODBC.conA!rstU.Set!HEAT(V.local.sHeat.Trim)
+			F.ODBC.conA!rstU.Set!SERIAL(V.Screen.FormDrops!txtSerial.Text)
+		F.Intrinsic.Control.EndIf
+			F.ODBC.conA!rstU.Set!QTY(V.Screen.FormDrops!txtQty.Text)
+			F.ODBC.conA!rstU.Set!LENGTH(V.Local.fLen)
+			F.ODBC.conA!rstU.Set!LENGTH_UM("in")
+			F.ODBC.conA!rstU.Set!WIDTH(V.Local.fWidth)
+			F.ODBC.conA!rstU.Set!WIDTH_UM("in")
+			F.ODBC.conA!rstU.Set!TOTAL(V.Local.fTot)
+			F.ODBC.conA!rstU.Set!TOTAL_UM("sf")
+			F.ODBC.conA!rstU.Set!DFAR(V.Local.sDFAR)
+			F.ODBC.conA!rstU.Set!USMELT(V.Local.sUSM)
+			F.ODBC.conA!rstU.Set!USMFG(V.Local.sMfg)
+	F.ODBC.conA!rstU.Update
+F.ODBC.conA!rstU.Close
+
+F.Intrinsic.String.RPad(V.Local.spart," ",20,V.Local.spart)
+F.Intrinsic.String.Right(V.Local.spart,3,V.Local.sRev)
+F.Intrinsic.String.Left(V.Local.spart,17,V.Local.spart)
+
+F.Intrinsic.String.Concat(V.Local.sLot.Trim,"	",V.Local.sBin.Trim,"	",V.Local.sHeat.Trim,"	",V.Screen.FormDrops!txtSerial.Text,"	",V.Local.sQty.Trim,V.Local.sIssue)
+	F.Intrinsic.File.String2File(V.Local.stemp,V.Local.sIssue.Trim)
+F.Intrinsic.String.Concat(V.Local.spart.Trim,"!*!",V.Local.sLoc.Trim,"!*!",V.Local.sQty.Trim,"!*!",V.Local.sSeq.Trim,"!*!"," ","!*!",V.Local.stemp.Trim,"!*!",V.Local.sLine.Trim,V.Local.sParams)
+F.Global.General.CallWrapperSync(300060,V.Local.sParams)
+
+F.Intrinsic.String.Concat(V.Local.spart.Trim,",",V.Local.sRev.Trim,",",V.Local.sLoc.Trim,",",V.Screen.FormDrops!txtITot.Text,",",V.Local.sDescription.Trim,",",V.Local.sLot,",",V.Local.sBin,",",V.Local.sHeat.Trim,",",V.Screen.FormDrops!txtSerial.Text,",R,Y",V.Local.sData)
+F.Intrinsic.String.Concat(V.Local.sData,V.Ambient.NewLine,V.Local.spart.Trim,",",V.Local.sRev.Trim,",",V.Local.sLoc.Trim,",",V.Screen.FormDrops!txtITot.Text,",",V.Local.sDescription.Trim,",",V.Local.sLot,",",V.Local.sBin,",",V.Local.sHeat.Trim,",",V.Local.sSerial(0),",I,Y",V.Local.sData)
+
+F.Intrinsic.String.Concat(V.Ambient.Date," :: ",V.Local.spart.Trim,",",V.Local.sRev.Trim,",",V.Local.sLoc.Trim,",",V.Screen.FormDrops!txtITot.Text,",",V.Local.sDescription.Trim,",",V.Local.sLot,",",V.Local.sBin,",",V.Local.sHeat.Trim,",",V.Screen.FormDrops!txtSerial.Text,",R,Y",V.Local.sLog)
+F.Intrinsic.String.Concat(V.Local.sLog,V.Ambient.NewLine,V.Ambient.Date," :: ",V.Local.spart.Trim,",",V.Local.sRev.Trim,",",V.Local.sLoc.Trim,",",V.Screen.FormDrops!txtITot.Text,",",V.Local.sDescription.Trim,",",V.Local.sLot,",",V.Local.sBin,",",V.Local.sHeat.Trim,",",V.Local.sSerial(0),",I,Y",V.Local.sLog)
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,"DropLog.txt",V.Local.sDropLog)
+F.Intrinsic.File.Exists(V.Local.sDropLog,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.AppendToFileNewLine(V.Local.sDropLog,V.Local.sLog)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.File.String2File(V.Local.sDropLog,V.Local.sLog)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,"Drop.txt",V.Local.sFile)
+F.Intrinsic.File.String2File(V.Local.sfile,V.Local.sdata)
+F.Intrinsic.String.Concat(V.Ambient.DblQuote,V.Caller.CompanyCode,"Drop.txt",V.Ambient.DblQuote,V.Local.sFile)
+F.Intrinsic.Task.LaunchGSSSync("WIR104","-C",V.Local.sFile)
+
+F.Global.General.SetPassedDataElement("PART",V.Local.spart.Trim)
+F.Global.General.SetPassedDataElement("SERIAL",V.Local.sSerial.Trim)
+
+F.Intrinsic.String.Concat(V.Caller.PluginsDir,"\GAB\GAS\ATG_3326_SF_ISSUE_DROP_LBL.gas",V.Local.sGABPrgm)
+F.Global.General.CallSyncGAS(V.Local.sGABPrgm)
+
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.DeleteFile(V.Local.sFile)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+
+program.sub.cmdDropSave_click.end
+
+
+program.sub.cmddrpcalc_click.start
+
+
+V.Local.sTotal.Declare(String)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTotal.Declare(Float)
+
+F.Intrinsic.Control.If(V.Screen.FormDrops!txtUML.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.FormDrops!txtUMW.Text,<>,"")
+
+F.Intrinsic.Control.If(V.Screen.FormDrops!txtQty.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.FormDrops!txtILen.Text,<>,"")
+		F.Intrinsic.Control.If(V.Screen.FormDrops!txtIWid.Text,<>,"")
+
+F.Intrinsic.Control.If(V.Screen.FormDrops!txtUML.Text,=,"ft")
+	V.Local.fLength.Set(V.Screen.FormDrops!txtILen.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUML.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.FormDrops!txtILen.Text,12,V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUML.Text,=,"M")
+	F.Intrinsic.Math.mult(V.Screen.FormDrops!txtILen.Text,3.2808399,V.Local.fLength)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.FormDrops!txtUMW.Text,=,"ft")
+	V.Local.fWidth.Set(V.Screen.FormDrops!txtIWid.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUMW.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.FormDrops!txtIWid.Text,12,V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUMW.Text,=,"M")
+	F.Intrinsic.Math.Mult(V.Screen.FormDrops!txtIWid.Text,3.2808399,V.Local.fWidth)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Math.Mult(V.Screen.FormDrops!txtQty.Text,V.Local.fLength,V.Local.fWidth,V.Local.fTotal)
+F.Intrinsic.String.Format(V.Local.fTotal,"0.0000",V.Local.sTotal)
+	
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Please enter width")
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please enter Length")
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Please enter Quantity")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Gui.FormDrops.txtITot.Text(V.Local.sTotal)
+
+program.sub.cmddrpcalc_click.end
+
+
+Program.Sub.cmdIssueSave_Click.Start
+
+
+V.Local.sFile.Declare(String)
+V.Local.sData.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sIssue.Declare(String)
+V.Local.stemp.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sLabelLoc.Declare(String)
+V.Local.sUpdate.Declare(String)
+V.Local.sParams.Declare(String)
+V.Local.sValues.Declare(String)
+V.Local.sGABPrgm.Declare(String)
+
+V.Local.spart.Declare(String)
+V.Local.sLoc.Declare(String)
+V.Local.sLot.Declare(String)
+V.Local.sBin.Declare(String)
+V.Local.sHeat.Declare(String)
+V.Local.sSer.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.sDesc.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sLine.Declare(String)
+V.Local.sApply.Declare(String)
+V.Local.sTot.Declare(String)
+V.Local.sLen.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.sLUM.Declare(String)
+V.Local.sTotal.Declare(String)
+
+V.Local.fWidth.Declare(Float)
+V.Local.fSLength.Declare(Float)
+V.Local.fLen.Declare(Float)
+V.Local.fTot.Declare(Float)
+
+V.Local.lLine.Declare(Long)
+V.Local.lRptID.Declare(Long)
+V.Local.lRet.Declare(Long)
+V.Local.bDir.Declare(Boolean)
+V.Local.sDir.Declare(String)
+V.Local.lPid.Declare(Long)
+
+F.Intrinsic.String.Format(V.Screen.FormIC!txtITot.Text,"0.0000",V.Local.sApply)
+V.Passed.SELECTED-QTY.Set(V.Local.sApply)
+
+	F.Intrinsic.Control.CallSub(Conversion,"Length",V.Screen.FormIC!txtIlen.Text,"LUM",V.Screen.FormIC!txtUML.Text,"Width",V.Screen.FormIC!txtIWid.Text,"WidthUM",V.Screen.FormIC!txtUMW.Text,"SLen",V.Screen.FormIC!txtILen.Text,"SLUM",V.Screen.FormIC!txtUML.Text)
+	F.Intrinsic.String.Format(V.Args.Length,"0.0000",V.Local.sLen)
+	F.Intrinsic.String.Format(V.Args.Width,"0.0000",V.Local.sWidth)
+	F.Intrinsic.String.Format(V.Screen.FormIC!txtITot.Text,"0.0000",V.Local.sTotal)
+
+F.Intrinsic.String.Concat("select distinct LENGTH,WIDTH,TOTAL from ATG_3326_TMP_ISSUES where TRMNL='",V.Caller.Terminal,"' and PART='",V.Screen.FormIC!txtItem.Text,"' and SERIAL='",V.Screen.FormIC!txtSerial.Text,"' and ROW='",V.passed.SELECTED-ROW,"'",V.Local.sQuery)
+F.ODBC.Connection!conA.OpenRecordsetRW("rstA",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstA.EOF,=,False)
+		F.ODBC.conA!rstA.Set!LENGTH(V.Local.sLen)
+		F.ODBC.conA!rstA.Set!WIDTH(V.Local.sWidth)
+		F.ODBC.conA!rstA.Set!TOTAL(V.Local.sTotal)
+		F.ODBC.conA!rstA.Update
+	F.Intrinsic.Control.EndIf
+F.ODBC.conA!rstA.Close
+
+'F.Global.General.SetPassedDataElement("PART",V.Screen.FormIC!txtItem.Text)
+'F.Global.General.SetPassedDataElement("SERIAL",V.Screen.FormIC!txtSerial.Text)
+'F.Intrinsic.String.Concat(V.Caller.PluginsDir,"\GAB\GAS\ATG_3326_SF_ISSUE_DROP_LBL.gas",V.Local.sGABPrgm)
+''F.Intrinsic.String.Concat("X:\GAS\GKD\Labels\ATG_3326_SF_ISSUE_DROP_LBL.gas","",V.Local.sGABPrgm)
+'
+'F.Global.General.CallASyncGAS(V.Local.sGABPrgm,V.Local.lPid)
+		
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+Program.Sub.cmdIssueSave_Click.End
+
+
+program.sub.dropdownlistlength_click.start
+
+
+
+Gui.FormIC.txtUML.Text(V.Screen.FormIC!dropdownlistLength.Text)
+
+program.sub.dropdownlistlength_click.end
+
+
+program.sub.dropdownlistwidth_click.start
+
+
+
+Gui.FormIC.txtUMW.Text(V.Screen.FormIC!dropdownlistWidth.Text)
+
+program.sub.dropdownlistwidth_click.end
+
+
+program.sub.droplength_click.start
+
+
+gui.FormDrops.txtUML.Text(V.Screen.FormDrops!dropdownlistLength.Text)
+
+program.sub.droplength_click.end
+
+
+program.sub.dropwidth_click.start
+
+
+Gui.FormDrops.txtUMW.Text(V.Screen.FormDrops!dropdownlistWidth.Text)
+
+program.sub.dropwidth_click.end
+
+
+Program.Sub.Conversion.Start
+
+V.Local.fsLen.Declare(Float)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+
+V.Local.fsLen.Set(V.Args.slen)
+V.Local.fWidth.Set(V.Args.Width)
+
+F.Intrinsic.Control.If(V.Args.LUM,=,"ft")
+	F.Intrinsic.Math.Mult(V.Screen.FormIC!txtILen.Text,12,V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Args.LUM,=,"in")
+	V.Local.fLength.Set(V.Args.Length)
+F.Intrinsic.Control.ElseIf(V.Args.LUM,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Screen.FormIC!txtILen.Text,"M2FT",V.Local.fLength)
+	F.Intrinsic.Math.Mult(V.Local.fLength,12,V.Local.fLength)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Args.WidthUM,=,"ft")
+	F.Intrinsic.Math.Mult(V.Screen.FormIC!txtIWid.Text,12,V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.FormIC!txtUMW.Text,=,"in")
+	V.Local.fWidth.Set(V.Screen.FormIC!txtIWid.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.FormIC!txtUMW.Text,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Screen.FormIC!txtIWid.Text,"M2FT",V.Local.fWidth)
+	F.Intrinsic.Math.Mult(V.Local.fWidth,12,V.Local.fWidth)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("length",V.Local.fLength)
+F.Intrinsic.Variable.AddRV("width",V.Local.fWidth)
+
+
+Program.Sub.Conversion.End
+
+
+Program.Sub.Issue.Start
+
+
+V.Local.sFile.Declare(String)
+V.Local.sData.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sIssue.Declare(String)
+V.Local.stemp.Declare(String)
+V.Local.sParams.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.sdelete.Declare(String)
+V.Local.sSel.Declare(String)
+
+V.Local.spart.Declare(String)
+V.Local.sLoc.Declare(String)
+V.Local.sLot.Declare(String)
+V.Local.sBin.Declare(String)
+V.Local.sHeat.Declare(String)
+V.Local.sSer.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sLine.Declare(String)
+V.Local.sApply.Declare(String)
+V.Local.sTot.Declare(String)
+V.Local.sLen.Declare(String)
+
+V.Local.fWidth.Declare(Float)
+V.Local.fLen.Declare(Float)
+V.Local.fTot.Declare(Float)
+V.Local.bExists.Declare(Boolean)
+
+'update item master
+	F.Intrinsic.BDF.TextMatrix("AUX001",8,V.Global.lRow,V.Local.sQty)
+	F.Intrinsic.BDF.TextMatrix("AUX001",5,V.Global.lRow,V.Local.sSeq)
+	F.Intrinsic.BDF.TextMatrix("AUX001",0,V.Global.lRow,V.Local.sLine)
+		F.Intrinsic.String.LPad(V.Local.sLine,"0",3,V.Local.sLine)
+
+F.Intrinsic.String.Concat(V.System.Temp,"\TempIss.txt",V.Local.stemp)
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,"Issrec.txt",V.Local.sFile)
+	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,False)
+			F.Intrinsic.Control.CallSub(Form1_unload)
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sData)
+
+	F.Intrinsic.String.Split(V.Local.sData,",",V.Local.sText)
+
+		F.Intrinsic.String.RPad(V.Local.sText(0)," ",17,V.Local.sPart)
+		F.Intrinsic.String.Concat(V.Local.sPart,V.Local.sText(1),V.Local.sPart)
+
+V.Local.sLoc.Set(V.Local.sText(2))
+V.Local.sLot.Set(V.Local.sText(5))
+V.Local.sBin.Set(V.Local.sText(6))
+V.Local.sHeat.Set(V.Local.sText(7))
+V.Local.sSer.Set(V.Local.sText(8))
+
+	F.Intrinsic.String.Trim(V.Local.sPart,V.Local.spart)
+	F.Intrinsic.String.Trim(V.Local.sLoc,V.Local.sLoc)
+	F.Intrinsic.String.Trim(V.Local.sLot,V.Local.sLot)
+	F.Intrinsic.String.Trim(V.Local.sBin,V.Local.sBin)
+	F.Intrinsic.String.Trim(V.Local.sHeat,V.Local.sHeat)
+	F.Intrinsic.String.Trim(V.Local.sSer,V.Local.sSer)
+
+
+F.Intrinsic.String.Concat(V.Local.sLot,"	",V.Local.sBin,"	",V.Local.sHeat,"	",V.Local.sSer,"	",V.Local.sQty,V.Local.sIssue)
+	F.Intrinsic.File.String2File(V.Local.stemp,V.Local.sIssue)
+
+'update ATG_3326_itmst_len_width
+F.Intrinsic.String.Concat("select * from ATG_3326_TMP_ISSUES where TRMNL='",V.Caller.Terminal,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRO("rstA",V.Local.sSel)
+	F.Intrinsic.Control.DoUntil(V.ODBC.conA!rstA.EOF,=,True)
+
+		F.Intrinsic.String.Concat("select LENGTH,WIDTH,TOTAL from ATG_3326_ITMST_LEN_WIDTH where PART='",V.ODBC.conA!rstA.FieldValTrim!PART,"' and SERIAL='",V.ODBC.conA!rstA.FieldValTrim!SERIAL,"'",V.Local.sQuery)
+		F.ODBC.Connection!conA.OpenRecordsetRW("rstB",V.Local.sQuery)
+			F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+				F.Intrinsic.Math.Sub(V.ODBC.conA!rstB.FieldVal!LENGTH,V.ODBC.conA!rstA.FieldVal!LENGTH,V.Local.fLen)
+					F.Intrinsic.String.Format(V.Local.fLen,"0.0000",V.Local.sLen)
+				F.Intrinsic.Math.Mult(V.Local.fLen,V.ODBC.conA!rstB.FieldVal!WIDTH,V.Local.fTot)
+				F.Intrinsic.Math.Div(V.Local.fTot,144,V.Local.fTot)
+					F.Intrinsic.String.Format(V.Local.fTot,"0.0000",V.Local.sTot)
+
+				F.ODBC.conA!rstB.Set!LENGTH(V.Local.sLen)
+				F.ODBC.conA!rstB.Set!TOTAL(V.Local.sTot)
+				F.ODBC.conA!rstB.Update
+
+				F.Intrinsic.String.Concat(V.Local.spart,"!*!",V.Local.sLoc,"!*!",V.Local.sQty,"!*!",V.Local.sSeq,"!*!"," ","!*!",V.Local.stemp,"!*!",V.Local.sLine,V.Local.sParams)
+				F.Global.General.CallWrapperSync(300060,V.Local.sParams)
+
+			F.Intrinsic.Control.EndIf
+		F.ODBC.conA!rstB.Close
+
+	F.ODBC.conA!rstA.MoveNext
+	F.Intrinsic.Control.Loop
+F.ODBC.conA!rstA.Close
+
+F.ODBC.Connection!conA.Execute("delete from ATG_3326_TMP_ISSUES")
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Caller.CompanyCode,"Issrec.txt",V.Local.sFile)
+	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.DeleteFile(V.Local.sFile)
+	F.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.CallSub(Form1_unload)
+
+
+Program.Sub.Issue.End
+
+
+Program.Sub.Convert_Back.Start
+
+V.Local.fsLen.Declare(Float)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+
+V.Local.fsLen.Set(V.Args.length)
+
+
+F.Intrinsic.Math.mult(V.Local.fsLen,12,V.Local.fLength)
+
+F.Intrinsic.Variable.AddRV("length",V.Local.fLength)
+
+
+Program.Sub.Convert_Back.End
+
+
+Program.Sub.Convert_Drop.Start
+
+
+V.Local.fsLen.Declare(Float)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+
+V.Local.fLength.Set(V.Args.Length)
+V.Local.fWidth.Set(V.Args.Width)
+
+
+
+F.Intrinsic.Control.If(V.Screen.FormDrops!txtUML.Text,=,"ft")
+	F.Intrinsic.Math.Mult(V.Local.fLength,12,V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUML.Text,=,"in")
+	V.Local.fLength.Set(V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUML.Text,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Local.fLength,"M2FT",V.Local.fLength)
+	F.Intrinsic.Math.Mult(V.Local.fLength,12,V.Local.fLength)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.If(V.Screen.FormDrops!txtUMW.Text,=,"ft")
+	F.Intrinsic.Math.Mult(V.Local.fWidth,12,V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUMW.Text,=,"in")
+	V.Local.fWidth.Set(V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.FormDrops!txtUMW.Text,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Local.fWidth,"M2FT",V.Local.fWidth)
+	F.Intrinsic.Math.Mult(V.Local.fWidth,12,V.Local.fWidth)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("length",V.Local.fLength)
+F.Intrinsic.Variable.AddRV("width",V.Local.fWidth)
+
+
+Program.Sub.Convert_Drop.End
+
+
+
