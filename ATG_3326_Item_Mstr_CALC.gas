@@ -1,0 +1,413 @@
+Program.Sub.ScreenSU.Start
+gui.Form1..create
+gui.Form1..caption("Item Master Calculator")
+gui.Form1..size(3705,5115)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,form1_unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(True)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+gui.Form1.txtLen.create(textbox,"",True,930,300,0,2220,1100,True,0,Arial,8,-2147483643,1)
+gui.Form1.lbl1.create(label,"Length",True,930,255,1,2220,875,True,0,Arial,8,-2147483633,0)
+gui.Form1.txtWidth.create(textbox,"",True,930,300,0,2220,2015,True,0,Arial,8,-2147483643,1)
+gui.Form1.lbl2.create(label,"Width",True,930,255,1,2220,1790,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl.create(label,"Quantity",True,855,255,1,355,155,True,0,Arial,8,-2147483633,0)
+gui.Form1.cmdCalc.create(button)
+gui.Form1.cmdCalc.caption("Calculate")
+gui.Form1.cmdCalc.visible(True)
+gui.Form1.cmdCalc.size(855,375)
+gui.Form1.cmdCalc.zorder(0)
+gui.Form1.cmdCalc.position(415,3960)
+gui.Form1.cmdCalc.enabled(True)
+gui.Form1.cmdCalc.fontname("Arial")
+gui.Form1.cmdCalc.fontsize(8)
+gui.Form1.cmdCalc.event(click,cmdcalc_click)
+gui.Form1.txtTotal.create(textbox,"",True,2775,300,0,355,2930,False,0,Arial,8,-2147483643,1)
+gui.Form1.lbl4.create(label,"Total Quantity (square ft)",True,1935,255,1,355,2720,True,0,Arial,8,-2147483633,0)
+gui.Form1.cmdSave.create(button)
+gui.Form1.cmdSave.caption("Save")
+gui.Form1.cmdSave.visible(True)
+gui.Form1.cmdSave.size(855,375)
+gui.Form1.cmdSave.zorder(0)
+gui.Form1.cmdSave.position(2095,3960)
+gui.Form1.cmdSave.enabled(True)
+gui.Form1.cmdSave.fontname("Arial")
+gui.Form1.cmdSave.fontsize(8)
+gui.Form1.cmdSave.event(click,cmdsave_click)
+gui.Form1.txtQty.create(textbox,"",True,930,300,0,355,395,True,0,Arial,8,-2147483643,1)
+gui.Form1.dropdownlistLength.create(dropdownlist)
+gui.Form1.dropdownlistLength.visible(True)
+gui.Form1.dropdownlistLength.size(930,330)
+gui.Form1.dropdownlistLength.zorder(0)
+gui.Form1.dropdownlistLength.position(355,1100)
+gui.Form1.dropdownlistLength.enabled(True)
+gui.Form1.dropdownlistLength.fontname("Arial")
+gui.Form1.dropdownlistLength.fontsize(8)
+gui.Form1.dropdownlistLength.event(click,dropdownlistlength_click)
+gui.Form1.lbl5.create(label,"UM",True,645,255,1,355,875,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl6.create(label,"UM",True,465,255,1,355,1790,True,0,Arial,8,-2147483633,0)
+gui.Form1.dropdownlistWidth.create(dropdownlist)
+gui.Form1.dropdownlistWidth.visible(True)
+gui.Form1.dropdownlistWidth.size(930,330)
+gui.Form1.dropdownlistWidth.zorder(0)
+gui.Form1.dropdownlistWidth.position(355,2015)
+gui.Form1.dropdownlistWidth.enabled(True)
+gui.Form1.dropdownlistWidth.fontname("Arial")
+gui.Form1.dropdownlistWidth.fontsize(8)
+gui.Form1.dropdownlistWidth.event(click,dropdownlistwidth_click)
+gui.Form1.txtUML.create(textbox,"",True,645,300,0,355,1100,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtUMW.create(textbox,"",True,645,300,0,355,2015,True,0,Arial,8,-2147483643,1)
+gui.Form1.lblDim1.create(label,"",True,930,255,1,2220,1390,True,0,Arial,8,-2147483633,0)
+gui.Form1.lblDim2.create(label,"",True,930,255,1,2220,2345,True,0,Arial,8,-2147483633,0)
+gui.Form1.chkDFAR.create(checkbox)
+gui.Form1.chkDFAR.caption("DFAR")
+gui.Form1.chkDFAR.visible(True)
+gui.Form1.chkDFAR.size(1020,255)
+gui.Form1.chkDFAR.zorder(0)
+gui.Form1.chkDFAR.position(360,3425)
+gui.Form1.chkDFAR.enabled(True)
+gui.Form1.chkDFAR.alignment(0)
+gui.Form1.chkDFAR.fontname("Arial")
+gui.Form1.chkDFAR.fontsize(8)
+gui.Form1.chkUSMELT.create(checkbox)
+gui.Form1.chkUSMELT.caption("US MELT")
+gui.Form1.chkUSMELT.visible(True)
+gui.Form1.chkUSMELT.size(1020,255)
+gui.Form1.chkUSMELT.zorder(0)
+gui.Form1.chkUSMELT.position(1270,3425)
+gui.Form1.chkUSMELT.enabled(True)
+gui.Form1.chkUSMELT.alignment(0)
+gui.Form1.chkUSMELT.fontname("Arial")
+gui.Form1.chkUSMELT.fontsize(8)
+gui.Form1.chkUSMFG.create(checkbox)
+gui.Form1.chkUSMFG.caption("USMFG")
+gui.Form1.chkUSMFG.visible(True)
+gui.Form1.chkUSMFG.size(840,255)
+gui.Form1.chkUSMFG.zorder(0)
+gui.Form1.chkUSMFG.position(2350,3425)
+gui.Form1.chkUSMFG.enabled(True)
+gui.Form1.chkUSMFG.alignment(0)
+gui.Form1.chkUSMFG.fontname("Arial")
+gui.Form1.chkUSMFG.fontsize(8)
+gui.Form1.txtQty.tabstop(True)
+gui.Form1.txtQty.tabindex(1)
+gui.Form1.txtLen.tabstop(True)
+gui.Form1.txtLen.tabindex(2)
+gui.Form1.txtWidth.tabstop(True)
+gui.Form1.txtWidth.tabindex(3)
+gui.Form1.cmdCalc.tabstop(True)
+gui.Form1.cmdCalc.tabindex(4)
+gui.Form1.cmdSave.tabstop(True)
+gui.Form1.cmdSave.tabindex(5)
+
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Program.Sub.Preflight.End
+
+
+Program.Sub.Main.Start
+'for GKD
+'JCT
+'04-01-10
+'hooks 15600, 15670
+V.Local.sSel.Declare(String)
+V.Local.sDimA.Declare(String)
+V.Local.sDimB.Declare(String)
+V.Local.sRod.Declare(String)
+
+V.Local.lDfar.Declare(Long)
+V.Local.lUSMelt.Declare(Long)
+V.Local.lUSMFG.Declare(Long)
+
+V.Local.fLen.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTot.Declare(Float)
+V.Local.fQTY.Declare(Float)
+
+V.Local.lQty.Declare(Long)
+
+V.Local.bTrue.Declare(Boolean)
+
+
+'populate hook to change text on [Script 1] button
+F.Intrinsic.Control.If(V.Caller.Hook,=,15600)
+	V.Passed.000024.Set("UM Calculator")
+	F.Intrinsic.Control.End
+
+
+
+'[Script 1] button hook
+F.Intrinsic.Control.elseIf(V.Caller.Hook,=,15670)
+
+Gui.Form1.dropdownlistLength.AddItem("in")
+Gui.Form1.dropdownlistLength.AddItem("ft")
+Gui.Form1.dropdownlistLength.AddItem("M")
+
+Gui.Form1.dropdownlistWidth.AddItem("in")
+Gui.Form1.dropdownlistWidth.AddItem("ft")
+Gui.Form1.dropdownlistWidth.AddItem("M")
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.String.Concat("select * from ATG_3326_ITMST_LEN_WIDTH where PART='",V.Passed.000001,"'and LOCN='",V.Passed.000003,"'and LOT='",V.Passed.000005,"'and BIN='",V.Passed.000006,"'and HEAT='",V.Passed.000008,"'and SERIAL='",V.Passed.000009,"'",V.Local.sSel)
+F.ODBC.Connection!con.OpenRecordsetRO("rstILW",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.con!rstILW.EOF,=,False)
+		V.Local.fLen.Set(V.ODBC.con!rstILW.FieldValTrim!LENGTH)
+		V.Local.fWidth.Set(V.ODBC.con!rstILW.FieldValTrim!WIDTH)
+		V.Local.fTot.Set(V.ODBC.con!rstILW.FieldValTrim!TOTAL)
+	F.Intrinsic.Control.If(V.ODBC.con!rstILW.FieldVal!DFAR,=,"X")
+		V.Local.lDfar.Set(1)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.ODBC.con!rstILW.FieldVal!USMELT,=,"X")
+		V.Local.lUSMelt.Set(1)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.ODBC.con!rstILW.FieldVal!USMFG,=,"X")
+		V.Local.lUSMFG.Set(1)
+	F.Intrinsic.Control.EndIf
+		V.Local.bTrue.Set(True)
+
+			F.Intrinsic.Math.Mult(V.Local.fTot,144,V.Local.fqty)
+			F.Intrinsic.Math.Div(V.Local.fqty,V.Local.fLen,V.Local.fqty)
+			F.Intrinsic.Math.Div(V.Local.fqty,V.Local.fWidth,V.Local.lqty)
+	F.Intrinsic.Control.EndIf
+F.ODBC.con!rstILW.Close
+
+F.Intrinsic.Control.If(V.Local.bTrue,=,True)
+	Gui.Form1.txtUML.Text("in")
+	Gui.Form1.txtUMW.Text("in")
+	Gui.Form1.txtLen.Text(V.Local.fLen)
+	Gui.Form1.txtQty.Text(V.Local.lqty)
+	Gui.Form1.txtTotal.Text(V.Local.fTot)
+	Gui.Form1.txtWidth.Text(V.Local.fWidth)
+	Gui.Form1.chkDFAR.Value(V.Local.lDfar)
+	Gui.Form1.chkUSMELT.Value(V.Local.lUSMelt)
+	Gui.Form1.chkUSMFG.Value(V.Local.lUSMFG)
+F.Intrinsic.Control.Else
+	Gui.Form1.txtQty.Text("1")
+	Gui.Form1.txtUML.Text("")
+	Gui.Form1.txtUMW.Text("")
+	Gui.Form1.txtLen.Text("")
+	Gui.Form1.txtWidth.Text("")
+	Gui.Form1.txtTotal.Text("")
+
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Passed.000001,"'",V.Local.sSel)
+F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!PROP_CODE,<>,"")
+			V.Local.sDima.Set(V.ODBC.con!rstB.FieldValTrim!DIMENSION_TITLE_1)
+			V.Local.sDimB.Set(V.ODBC.con!rstB.FieldValTrim!DIMENSION_TITLE_2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.con!rstB.Close
+
+gui.Form1.lblDim1.create(label,V.Local.sDimA,True,930,255,1,2220,1390,True,0,Arial,8,-2147483633,0)
+gui.Form1.lblDim2.create(label,V.Local.sDimB,True,930,255,1,2220,2345,True,0,Arial,8,-2147483633,0)
+
+Gui.Form1..AlwaysOnTop(true)
+
+F.Intrinsic.Control.Do
+	F.Intrinsic.API.SetWindowPositions(V.Caller.Handle,V.Screen.Form1.HWnd,3)
+F.Intrinsic.Control.Loop
+
+Gui.Form1..Show
+
+F.Intrinsic.Control.Else
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+
+program.sub.cmdcalc_click.start
+
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTotal.Declare(Float)
+
+V.Local.sTotal.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,<>,"")
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtQty.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.Form1!txtLen.Text,<>,"")
+		F.Intrinsic.Control.If(V.Screen.Form1!txtWidth.Text,<>,"")
+
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,=,"ft")
+	V.Local.fLength.Set(V.Screen.Form1!txtLen.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.Form1!txtLen.Text,12,V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"M")
+	F.Intrinsic.Math.mult(V.Screen.Form1!txtLen.Text,3.2808399,V.Local.fLength)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,=,"ft")
+	V.Local.fWidth.Set(V.Screen.Form1!txtWidth.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.Form1!txtWidth.Text,12,V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"M")
+	F.Intrinsic.Math.Mult(V.Screen.Form1!txtWidth.Text,3.2808399,V.Local.fWidth)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Math.Mult(V.Screen.Form1!txtQty.Text,V.Local.fLength,V.Local.fWidth,V.Local.fTotal)
+F.Intrinsic.String.Format(V.Local.fTotal,"0.0000",V.Local.sTotal)
+
+
+	
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Please enter width")
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please enter Length")
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Please enter Quantity")
+F.Intrinsic.Control.EndIf
+
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please enter UM for Width")
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Please enter UM for Length")
+F.Intrinsic.Control.EndIf
+
+
+Gui.Form1.txtTotal.Text(V.Local.sTotal)
+
+program.sub.cmdcalc_click.end
+
+
+program.sub.form1_unload.start
+
+f.ODBC.Connection!Con.Close
+f.Intrinsic.Control.End
+
+program.sub.form1_unload.end
+
+
+program.sub.cmdsave_click.start
+
+V.Local.sSel.Declare(String)
+V.Local.sTotal.Declare(String)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.sLength.Declare(String)
+V.Local.sWidth.Declare(String)
+
+
+V.Passed.000010.Set(V.Screen.Form1!txtTotal.Text)
+V.Passed.000011.Set(V.Screen.Form1!txtTotal.Text)
+
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,=,"ft")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtLen.Text,"Ft2In",V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"in")
+	V.Local.fLength.Set(V.Screen.Form1!txtLen.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtLen.Text,"M2In",V.Local.fLength)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,=,"ft")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtWidth.Text,"Ft2In",V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"in")
+	V.Local.fWidth.Set(V.Screen.Form1!txtWidth.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtWidth.Text,"M2In",V.Local.fWidth)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Format(V.Local.fWidth,"0.0000",V.Local.sWidth)
+F.Intrinsic.String.Format(V.Local.fLength,"0.0000",V.Local.sLength)
+
+F.Intrinsic.String.Concat("select * from ATG_3326_ITMST_LEN_WIDTH where PART='",V.Passed.000001,"'and LOCN='",V.Passed.000003,"'and LOT='",V.Passed.000005,"'and BIN='",V.Passed.000006,"'and HEAT='",V.Passed.000008,"'and SERIAL='",V.Passed.000009,"'",V.Local.sSel)
+F.ODBC.Connection!con.OpenRecordsetRW("rstILW",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.con!rstILW.EOF,=,True)
+		F.ODBC.con!rstILW.AddNew
+
+			F.ODBC.con!rstILW.Set!PART(V.Passed.000001)
+			F.ODBC.con!rstILW.Set!LOCN(V.Passed.000003)
+			F.ODBC.con!rstILW.Set!LOT(V.Passed.000005)
+			F.ODBC.con!rstILW.Set!BIN(V.Passed.000006)
+			F.ODBC.con!rstILW.Set!HEAT(V.Passed.000008)
+			F.ODBC.con!rstILW.Set!SERIAL(V.Passed.000009)
+
+	F.Intrinsic.Control.EndIf
+
+			F.ODBC.con!rstILW.Set!QTY(V.Screen.Form1!txtQty.Text)
+			F.ODBC.con!rstILW.Set!LENGTH(V.Local.sLength)
+			F.ODBC.con!rstILW.Set!LENGTH_UM("in")
+			F.ODBC.con!rstILW.Set!WIDTH(V.Local.sWidth)
+			F.ODBC.con!rstILW.Set!WIDTH_UM("in")
+			F.ODBC.con!rstILW.Set!TOTAL(V.Screen.Form1!txtTotal.Text)
+			F.ODBC.con!rstILW.Set!TOTAL_UM("sf")
+		F.Intrinsic.Control.If(V.Screen.Form1!chkDFAR.Value,=,1)
+			F.ODBC.con!rstILW.Set!DFAR("X")
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rstILW.Set!DFAR("")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Screen.Form1!chkUSMELT.Value,=,1)
+			F.ODBC.con!rstILW.Set!USMELT("X")
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rstILW.Set!USMELT("")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Screen.Form1!chkUSMFG.Value,=,1)
+			F.ODBC.con!rstILW.Set!USMFG("X")
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rstILW.Set!USMFG("")
+		F.Intrinsic.Control.EndIf
+
+		F.ODBC.con!rstILW.Update
+F.ODBC.con!rstILW.Close
+	
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+program.sub.cmdsave_click.end
+
+
+program.sub.dropdownlistlength_click.start
+
+
+
+Gui.Form1.txtUML.Text(V.Screen.Form1!dropdownlistLength.Text)
+
+program.sub.dropdownlistlength_click.end
+
+
+program.sub.dropdownlistwidth_click.start
+
+
+Gui.Form1.txtUMW.Text(V.Screen.Form1!dropdownlistWidth.Text)
+
+program.sub.dropdownlistwidth_click.end
+
+
+
