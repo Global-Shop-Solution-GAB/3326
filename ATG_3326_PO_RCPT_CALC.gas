@@ -1,0 +1,1025 @@
+Program.Sub.ScreenSU.Start
+gui.Form1..create
+gui.Form1..caption("PO Receipt Calculator")
+gui.Form1..size(3705,5115)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,form1_unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(True)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+gui.Form1.txtLen.create(textbox,"",True,930,300,0,2220,1100,True,0,Arial,8,-2147483643,1)
+gui.Form1.lbl1.create(label,"Length",True,930,255,1,2220,875,True,0,Arial,8,-2147483633,0)
+gui.Form1.txtWidth.create(textbox,"",True,930,300,0,2220,2015,True,0,Arial,8,-2147483643,1)
+gui.Form1.lbl2.create(label,"Width",True,930,255,1,2220,1790,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl.create(label,"Quantity",True,855,255,1,355,155,True,0,Arial,8,-2147483633,0)
+gui.Form1.cmdCalc.create(button)
+gui.Form1.cmdCalc.caption("Calculate")
+gui.Form1.cmdCalc.visible(True)
+gui.Form1.cmdCalc.size(855,375)
+gui.Form1.cmdCalc.zorder(0)
+gui.Form1.cmdCalc.position(415,3960)
+gui.Form1.cmdCalc.enabled(True)
+gui.Form1.cmdCalc.fontname("Arial")
+gui.Form1.cmdCalc.fontsize(8)
+gui.Form1.cmdCalc.event(click,cmdcalc_click)
+gui.Form1.txtTotal.create(textbox,"",True,2775,300,0,355,2930,False,0,Arial,8,-2147483643,1)
+gui.Form1.lbl4.create(label,"Total Quantity (square ft)",True,1935,255,1,355,2720,True,0,Arial,8,-2147483633,0)
+gui.Form1.cmdSave.create(button)
+gui.Form1.cmdSave.caption("Save")
+gui.Form1.cmdSave.visible(True)
+gui.Form1.cmdSave.size(855,375)
+gui.Form1.cmdSave.zorder(0)
+gui.Form1.cmdSave.position(2095,3960)
+gui.Form1.cmdSave.enabled(True)
+gui.Form1.cmdSave.fontname("Arial")
+gui.Form1.cmdSave.fontsize(8)
+gui.Form1.cmdSave.event(click,cmdsave_click)
+gui.Form1.txtQty.create(textbox,"",True,930,300,0,355,395,True,0,Arial,8,-2147483643,1)
+gui.Form1.dropdownlistLength.create(dropdownlist)
+gui.Form1.dropdownlistLength.visible(True)
+gui.Form1.dropdownlistLength.size(930,330)
+gui.Form1.dropdownlistLength.zorder(0)
+gui.Form1.dropdownlistLength.position(355,1100)
+gui.Form1.dropdownlistLength.enabled(True)
+gui.Form1.dropdownlistLength.fontname("Arial")
+gui.Form1.dropdownlistLength.fontsize(8)
+gui.Form1.dropdownlistLength.event(click,dropdownlistlength_click)
+gui.Form1.lbl5.create(label,"UM",True,645,255,1,355,875,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl6.create(label,"UM",True,465,255,1,355,1790,True,0,Arial,8,-2147483633,0)
+gui.Form1.dropdownlistWidth.create(dropdownlist)
+gui.Form1.dropdownlistWidth.visible(True)
+gui.Form1.dropdownlistWidth.size(930,330)
+gui.Form1.dropdownlistWidth.zorder(0)
+gui.Form1.dropdownlistWidth.position(355,2015)
+gui.Form1.dropdownlistWidth.enabled(True)
+gui.Form1.dropdownlistWidth.fontname("Arial")
+gui.Form1.dropdownlistWidth.fontsize(8)
+gui.Form1.dropdownlistWidth.event(click,dropdownlistwidth_click)
+gui.Form1.txtUML.create(textbox,"",True,645,300,0,355,1100,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtUMW.create(textbox,"",True,645,300,0,355,2015,True,0,Arial,8,-2147483643,1)
+gui.Form1.lblDim1.create(label,"",True,930,255,1,2220,1390,True,0,Arial,8,-2147483633,0)
+gui.Form1.lblDim2.create(label,"",True,930,255,1,2220,2345,True,0,Arial,8,-2147483633,0)
+gui.Form1.chkDFAR.create(checkbox)
+gui.Form1.chkDFAR.caption("DFAR")
+gui.Form1.chkDFAR.visible(True)
+gui.Form1.chkDFAR.size(1020,255)
+gui.Form1.chkDFAR.zorder(0)
+gui.Form1.chkDFAR.position(360,3425)
+gui.Form1.chkDFAR.enabled(True)
+gui.Form1.chkDFAR.alignment(0)
+gui.Form1.chkDFAR.fontname("Arial")
+gui.Form1.chkDFAR.fontsize(8)
+gui.Form1.chkUSMELT.create(checkbox)
+gui.Form1.chkUSMELT.caption("US MELT")
+gui.Form1.chkUSMELT.visible(True)
+gui.Form1.chkUSMELT.size(1020,255)
+gui.Form1.chkUSMELT.zorder(0)
+gui.Form1.chkUSMELT.position(1270,3425)
+gui.Form1.chkUSMELT.enabled(True)
+gui.Form1.chkUSMELT.alignment(0)
+gui.Form1.chkUSMELT.fontname("Arial")
+gui.Form1.chkUSMELT.fontsize(8)
+gui.Form1.chkUSMFG.create(checkbox)
+gui.Form1.chkUSMFG.caption("USMFG")
+gui.Form1.chkUSMFG.visible(True)
+gui.Form1.chkUSMFG.size(840,255)
+gui.Form1.chkUSMFG.zorder(0)
+gui.Form1.chkUSMFG.position(2350,3425)
+gui.Form1.chkUSMFG.enabled(True)
+gui.Form1.chkUSMFG.alignment(0)
+gui.Form1.chkUSMFG.fontname("Arial")
+gui.Form1.chkUSMFG.fontsize(8)
+gui.Form1.txtQty.tabstop(True)
+gui.Form1.txtQty.tabindex(1)
+gui.Form1.txtLen.tabstop(True)
+gui.Form1.txtLen.tabindex(2)
+gui.Form1.txtWidth.tabstop(True)
+gui.Form1.txtWidth.tabindex(3)
+gui.Form1.cmdCalc.tabstop(True)
+gui.Form1.cmdCalc.tabindex(4)
+gui.Form1.cmdSave.tabstop(True)
+gui.Form1.cmdSave.tabindex(5)
+
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Variable.Global.sUM.Declare(String)
+Program.Sub.Preflight.End
+
+
+Program.Sub.Main.Start
+
+V.Local.sSel.Declare(String)
+V.Local.sPUm.Declare(String)
+V.Local.sIUm.Declare(String)
+V.Local.spart.Declare(String)
+V.Local.sRod.Declare(String)
+V.Local.sDimA.Declare(String)
+V.Local.sDimB.Declare(String)
+
+V.Local.fTot.Declare(Float)
+
+V.Local.stempQty.Declare(String)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\qty.txt",V.Local.stempQty)
+
+F.ODBC.Connection!Con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+'16410 lot/bin [save] button
+F.Intrinsic.Control.If(V.Caller.Hook,=,"16410")
+	F.Intrinsic.Control.CallSub(Screensave)
+'F.Intrinsic.Control.EndIf
+
+'16400 lot/bin populate
+F.Intrinsic.Control.elseIf(V.Caller.hook,=,16400)
+	V.Passed.000085.Set("UM Calculator")
+	F.Intrinsic.Control.CallSub(Roll_verification)
+
+'15030 receipt [Save] button
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,15030)
+'if receive to job, delet so part not created in inventory
+	F.Intrinsic.Control.If(V.Passed.000260,=,"Y")
+		F.Intrinsic.String.Concat("delete from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"'",V.Local.sSel)
+		F.ODBC.Connection!Con.Execute(V.Local.sSel)
+	F.Intrinsic.Control.EndIf
+
+'15040 Receipt [OK] button
+F.Intrinsic.Control.elseif(V.Caller.Hook,=,15040)
+	F.Intrinsic.Control.CallSub(Item_update)
+
+'16090 BI Print
+F.Intrinsic.Control.elseif(V.Caller.Hook,=,16090)
+	F.Intrinsic.Control.If(V.Passed.009001,=,"002818")
+		F.Intrinsic.Control.CallSub(Print)
+	F.Intrinsic.Control.EndIf
+
+'15068 PO Receipt Exit
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,"15068")
+	F.Intrinsic.String.Concat("delete from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"'",V.Local.sSel)
+	F.ODBC.Connection!Con.Execute(V.Local.sSel)
+
+'15069 PO Receipt Pre-Cancel
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,"15069")
+	F.Intrinsic.String.Concat("delete from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"'",V.Local.sSel)
+	F.ODBC.Connection!Con.Execute(V.Local.sSel)
+
+'16440 [Script 1] button
+F.Intrinsic.Control.elseif(V.Caller.Hook,=,16440)
+
+Gui.Form1.dropdownlistLength.AddItem("in")
+Gui.Form1.dropdownlistLength.AddItem("ft")
+Gui.Form1.dropdownlistLength.AddItem("M")
+
+Gui.Form1.dropdownlistWidth.AddItem("in")
+Gui.Form1.dropdownlistWidth.AddItem("ft")
+Gui.Form1.dropdownlistWidth.AddItem("M")
+
+F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.009000,"'and left(PO_LINE,3)='",V.Passed.009001,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstSel.EOF,=,False)
+
+F.Intrinsic.Math.Mult(V.ODBC.Con!rstSel.FieldVal!TOTAL,144,V.Local.fTot)
+F.Intrinsic.Math.Div(V.Local.fTot,V.ODBC.Con!rstSel.FieldVal!LENGTH,V.Local.fTot)
+F.Intrinsic.Math.Div(V.Local.fTot,V.ODBC.Con!rstSel.FieldVal!WIDTH,V.Local.fTot)
+
+		Gui.Form1.txtUML.Text(V.ODBC.Con!rstSel.FieldValTrim!LENGTH_UM)
+		Gui.Form1.txtUMW.Text(V.ODBC.Con!rstSel.FieldValTrim!WIDTH_UM)
+		Gui.Form1.txtLen.Text(V.ODBC.Con!rstSel.FieldValTrim!LENGTH)
+		Gui.Form1.txtWidth.Text(V.ODBC.Con!rstSel.FieldValTrim!WIDTH)
+		Gui.Form1.txtTotal.Text(V.ODBC.Con!rstSel.FieldValTrim!TOTAL)
+		Gui.Form1.txtQty.Text(V.ODBC.Con!rstSel.FieldValTrim!QTY)
+
+	F.Intrinsic.Control.Else
+		Gui.Form1.txtQty.Text("1")
+		Gui.Form1.txtUML.Text("")
+		Gui.Form1.txtUMW.Text("")
+		Gui.Form1.txtLen.Text("")
+		Gui.Form1.txtWidth.Text("")
+		Gui.Form1.txtTotal.Text("")
+
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstSel.Close
+
+F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Passed.000001,"'",V.Local.sSel)
+F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!PROP_CODE,<>,"")
+			V.Local.sDima.Set(V.ODBC.con!rstB.FieldValTrim!DIMENSION_TITLE_1)
+			V.Local.sDimB.Set(V.ODBC.con!rstB.FieldValTrim!DIMENSION_TITLE_2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.con!rstB.Close
+
+Gui.Form1.lblDim1.create(label,V.Local.sDimA,True,930,255,1,2220,1390,True,0,Arial,8,-2147483633,0)
+Gui.Form1.lblDim2.create(label,V.Local.sDimB,True,930,255,1,2220,2345,True,0,Arial,8,-2147483633,0)
+
+Gui.Form1..AlwaysOnTop(true)
+
+F.Intrinsic.Control.Do
+	F.Intrinsic.API.SetWindowPositions(V.Caller.Handle,V.Screen.Form1.HWnd,3)
+F.Intrinsic.Control.Loop
+
+Gui.Form1..Show
+F.Intrinsic.Control.EndIf
+
+
+
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+Program.Sub.Main.End
+
+
+program.sub.cmdcalc_click.start
+
+V.Local.sTotal.Declare(String)
+V.Local.sLength.Declare(String)
+V.Local.sWidth.Declare(String)
+
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTotal.Declare(Float)
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,<>,"")
+
+		F.Intrinsic.Control.If(V.Screen.Form1!txtQty.Text,<>,"")
+			F.Intrinsic.Control.If(V.Screen.Form1!txtLen.Text,<>,"")
+				F.Intrinsic.Control.If(V.Screen.Form1!txtWidth.Text,<>,"")
+
+					F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,=,"ft")
+						V.Local.fLength.Set(V.Screen.Form1!txtLen.Text)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"in")
+						F.Intrinsic.Math.Div(V.Screen.Form1!txtLen.Text,12,V.Local.fLength)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"M")
+						F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtLen.Text,"M2FT",V.Local.fLength)
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,=,"ft")
+						V.Local.fWidth.Set(V.Screen.Form1!txtWidth.Text)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"in")
+						F.Intrinsic.Math.Div(V.Screen.Form1!txtWidth.Text,12,V.Local.fWidth)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"M")
+						F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtWidth.Text,"M2FT",V.Local.fWidth)
+					F.Intrinsic.Control.EndIf
+
+
+					F.Intrinsic.Math.Mult(V.Screen.Form1!txtQty.Text,V.Local.fLength,V.Local.fWidth,V.Local.fTotal)
+					F.Intrinsic.String.Format(V.Local.fTotal,"0.0000",V.Local.sTotal)
+					F.Intrinsic.String.Format(V.Local.fLength,"0.0000",V.Local.sLength)
+					F.Intrinsic.String.Format(V.Local.fWidth,"0.0000",V.Local.sWidth)
+
+				F.Intrinsic.Control.Else
+					F.Intrinsic.UI.Msgbox("Please enter width")
+				F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Please enter Length")
+			F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Please enter Quantity")
+		F.Intrinsic.Control.EndIf
+
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please enter UM for Width")
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Please enter UM for Length")
+F.Intrinsic.Control.EndIf
+
+Gui.Form1.txtTotal.Text(V.Local.sTotal)
+'Gui.Form1.txtLen.Text(V.Local.sLength)
+'Gui.Form1.txtWidth.Text(V.Local.sWidth)
+
+program.sub.cmdcalc_click.end
+
+
+program.sub.cmdsave_click.start
+V.Local.sSel.Declare(String)
+V.Local.sPOLine.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sPOtxt.Declare(String)
+V.Local.sPOsel.Declare(String)
+V.Local.sDFAR.Declare(String)
+V.Local.sDFARtxt.Declare(String)
+V.Local.fLength.Declare(Float)
+V.Local.fwidth.Declare(Float)
+V.Local.sLength.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.fTotal.Declare(Float)
+V.Local.stotal.Declare(String)
+
+V.Local.stempQty.Declare(String)
+V.Local.sQty.Declare(String)
+
+F.Intrinsic.String.RPad(V.Passed.009001,"0",4,V.Local.sPOLine)
+'po=9000
+'po line = 9001
+
+V.Local.sQty.Set(V.Screen.Form1!txtQty.Text)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\qty.txt",V.Local.stempQty)
+	F.Intrinsic.File.String2File(V.Local.stempQty,V.Local.sQty)
+
+F.Intrinsic.String.Concat(V.System.Temp,"\POLine.txt",V.Local.sFile)
+F.Intrinsic.String.Concat(V.System.Temp,"\DFAR.txt",V.Local.sDFAR)
+	F.Intrinsic.String.Concat(V.Screen.Form1!chkDFAR.Value,",",V.Screen.Form1!chkUSMELT.Value,",",V.Screen.Form1!chkUSMFG.Value,V.Local.sDFARtxt)
+	F.Intrinsic.File.String2File(V.Local.sDFAR,V.Local.sDFARtxt)
+
+'F.Intrinsic.String.RPad(V.Passed.009001,"0",4,V.Local.sPOLine)
+F.Intrinsic.String.Concat(V.Screen.Form1!txtLen.Text," x ",V.Screen.Form1!txtWidth.Text," sq ft",V.Local.sPOtxt)
+
+F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.009000,"'and PO_LINE='",V.Local.sPOLine,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstP",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstP.EOF,=,True)
+		F.ODBC.Con!rstP.AddNew
+			F.ODBC.Con!rstP.Set!PO(V.Passed.009000)
+			F.ODBC.Con!rstP.Set!PO_LINE(V.Local.sPOLine)
+			F.ODBC.Con!rstP.Set!PART(V.Passed.000001)
+			F.ODBC.Con!rstP.Set!LOCN(V.Passed.000002)
+	F.Intrinsic.Control.EndIf
+			F.ODBC.Con!rstP.Set!QTY(V.Screen.Form1!txtQty.Text)
+			F.ODBC.Con!rstP.Set!LENGTH(V.Screen.Form1!txtLen.Text)
+			F.ODBC.Con!rstP.Set!LENGTH_UM(V.Screen.Form1!txtUML.Text)
+			F.ODBC.Con!rstP.Set!WIDTH(V.Screen.Form1!txtWidth.Text)
+			F.ODBC.Con!rstP.Set!WIDTH_UM(V.Screen.Form1!txtUMW.Text)
+			F.ODBC.Con!rstP.Set!TOTAL(V.Screen.Form1!txtTotal.Text)
+			F.ODBC.Con!rstP.Set!TOTAL_UM("SF")
+		F.ODBC.Con!rstP.Update
+F.ODBC.Con!rstP.Close
+
+
+F.Intrinsic.String.Concat("select * from PO_TEXT where PO_TYPE='D' and PURCHASE_ORDER='",V.Passed.009000,"'and PO_LINE='",V.Local.sPOLine,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstP",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstP.EOF,=,False)
+			F.ODBC.Con!rstP.Set!TEXT(V.Local.sPOtxt)
+		F.ODBC.Con!rstP.Update
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstP.Close
+
+'V.Passed.000071.Set(V.Screen.Form1!txtQty.Text)
+'V.Passed.000068.Set("Y")
+V.Passed.000072.Set(V.Screen.Form1!txtTotal.Text)
+
+
+	F.Intrinsic.String.Concat("select * from ATG_3326_Temp_PO_TXT where PART='",V.Passed.000001,"'and LOT='' and BIN='' and HEAT='' ",V.Local.sPOsel)
+	F.ODBC.Connection!Con.OpenRecordsetRW("rstPO",V.Local.sPOsel)
+		F.Intrinsic.Control.If(V.ODBC.Con!rstPO.EOF,=,True)
+			F.ODBC.Con!rstPO.AddNew
+				F.ODBC.Con!rstPO.Set!PART(V.Passed.000001)
+				F.ODBC.Con!rstPO.Set!LOC(V.Passed.000002)
+				F.ODBC.Con!rstPO.Set!LOT("")
+				F.ODBC.Con!rstPO.Set!BIN("")
+				F.ODBC.Con!rstPO.Set!HEAT("")
+				F.ODBC.Con!rstPO.Set!SERIAL("")
+				F.ODBC.Con!rstPO.Set!QTY(V.Screen.Form1!txtQty.Text)
+				F.ODBC.Con!rstPO.Set!LENGTH(V.Screen.Form1!txtLen.Text)
+				F.ODBC.Con!rstPO.Set!LENGTH_UM(V.Screen.Form1!txtUML.Text)
+				F.ODBC.Con!rstPO.Set!WIDTH(V.Screen.Form1!txtWidth.Text)
+				F.ODBC.Con!rstPO.Set!WIDTH_UM(V.Screen.Form1!txtUMW.Text)
+				F.ODBC.Con!rstPO.Set!TOTAL(V.Screen.Form1!txtTotal.Text)
+				F.ODBC.Con!rstPO.Set!TOTAL_UM("SF")
+			F.ODBC.Con!rstPO.Update
+		F.Intrinsic.Control.EndIf
+	F.ODBC.Con!rstPO.Close
+
+
+
+
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+program.sub.cmdsave_click.end
+
+
+program.sub.form1_unload.start
+
+F.ODBC.Connection!Con.Close
+F.Intrinsic.Control.End
+
+program.sub.form1_unload.end
+
+
+Program.Sub.ScreenSaveOLD.Start
+V.Local.sPOLine.Declare(String)
+V.Local.sSel.Declare(String)
+V.Local.sSelX.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sPOsel.Declare(String)
+V.Local.stempQty.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sLength.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.sValue.Declare(String)
+V.Local.sTotal.Declare(String)
+V.Local.sDFAR.Declare(String)
+V.Local.sDFARtxt.Declare(String)
+
+V.Local.iQty.Declare(Long)
+V.Local.iCount.Declare(Long)
+
+V.Local.fTotal.Declare(Float)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+
+V.Local.bExists.Declare(Boolean)
+
+'009000=po
+'009001=line
+'00071=po qty
+'00072=inv qty
+'000061=lot
+'000062=bin
+'000064=heat
+'000065=serial
+
+'F.Intrinsic.String.Concat("delete from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"'",V.Local.sSel)
+'F.ODBC.Connection!Con.Execute(V.Local.sSel)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\qty.txt",V.Local.stempQty)
+F.Intrinsic.File.Exists(V.Local.stempQty,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.File2String(V.Local.stempQty,V.Local.sQty)
+			V.Passed.009002.Set(V.Local.sQty)
+		F.Intrinsic.File.DeleteFile(V.Local.stempQty)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.RPad(V.Passed.009001,"0",4,V.Local.sPOLine)
+
+F.Intrinsic.String.Concat("select * from ATG_3326_TEMP_PO_TXT where Part='",V.Passed.000001,"' and LOT='' and BIN='' and HEAT='' ",V.Local.sPOsel)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstPO",V.Local.sPOsel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstPO.EOF,=,False)
+			F.ODBC.Con!rstPO.Set!LOT(V.Passed.000061)
+			F.ODBC.Con!rstPO.Set!BIN(V.Passed.000062)
+			F.ODBC.Con!rstPO.Set!HEAT(V.Passed.000064)
+		F.ODBC.Con!rstPO.Update
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstPO.Close
+
+F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.009000,"'and PO_LINE='",V.Local.sPOLine,"'",V.Local.sPOsel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstPO",V.Local.sPOsel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstPO.EOF,=,False)
+
+			F.Intrinsic.Control.If(V.ODBC.Con!rstPO.FieldValTrim!LENGTH_UM,=,"ft")
+				F.Intrinsic.Math.mult(V.ODBC.Con!rstPO.FieldValTrim!LENGTH,12,V.Local.fLength)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!LENGTH_UM,=,"in")
+				V.Local.fLength.Set(V.ODBC.Con!rstPO.FieldValTrim!LENGTH)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!LENGTH_UM,=,"M")
+				F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstPO.FieldValTrim!LENGTH,"M2FT",V.Local.fLength)
+				F.Intrinsic.Math.mult(V.Local.fLength,12,V.Local.fLength)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.If(V.ODBC.Con!rstPO.FieldValTrim!WIDTH_UM,=,"ft")
+				F.Intrinsic.Math.mult(V.ODBC.Con!rstPO.FieldValTrim!WIDTH,12,V.Local.fWidth)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!WIDTH_UM,=,"in")
+				V.Local.fWidth.Set(V.ODBC.Con!rstPO.FieldValTrim!WIDTH)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!WIDTH_UM,=,"M")
+				F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstPO.FieldValTrim!WIDTH,"M2FT",V.Local.fWidth)
+				F.Intrinsic.Math.mult(V.Local.fWidth,12,V.Local.fWidth)
+			F.Intrinsic.Control.EndIf
+
+				F.Intrinsic.String.Format(V.Local.fLength,"0.0000",V.Local.sLength)
+				F.Intrinsic.String.Format(V.Local.fWidth,"0.0000",V.Local.sWidth)
+
+		F.Intrinsic.String.Concat("select count(PART) as C  from ATG_3326_ITMST_LEN_WIDTH where PART='",V.Passed.000001,"'and LOCN='",V.Passed.000002,"'and LOT='",V.Passed.000061,"'and BIN='",V.Passed.000062,"'and HEAT='",V.Passed.000064,"'and SERIAL =''",V.Local.sSel)
+		F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+			V.Local.iCount.Set(V.ODBC.Con!rstSel.FieldVal!C)
+		F.ODBC.Con!rstSel.Close
+
+		V.Local.iQty.Set(V.ODBC.Con!rstPO.FieldValFLOAT!QTY)
+		V.Local.fTotal.Set(V.ODBC.Con!rstPO.FieldValFloat!TOTAL)
+
+		F.Intrinsic.Math.Div(V.Local.fTotal,V.Local.iQty,V.Local.fTotal)
+
+
+		F.Intrinsic.String.Concat(V.System.Temp,"\DFAR.txt",V.Local.sDFAR)
+		F.Intrinsic.File.Exists(V.Local.sDFAR,V.Local.bExists)
+	
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.File2String(V.Local.sDFAR,V.Local.sDFARtxt)
+		F.Intrinsic.String.Split(V.Local.sDFARtxt,",",V.Local.sDFARtxt)
+
+		F.Intrinsic.Control.For(V.Local.iCount,1,V.Local.iQty,1)
+			F.Intrinsic.String.Concat("select * from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"' and PART='",V.Passed.000001.Trim,"'",V.Local.sSel)
+			F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+				F.ODBC.Con!rstSel.AddNew
+					F.ODBC.Con!rstSel.Set!TRMNL(V.Caller.Terminal)
+					F.ODBC.Con!rstSel.Set!PART(V.Passed.000001.Trim)
+					F.ODBC.Con!rstSel.Set!LOCN(V.passed.000002.Trim)
+					F.ODBC.Con!rstSel.Set!LOT(V.passed.000061.Trim)
+					F.ODBC.Con!rstSel.Set!BIN(V.passed.000062.Trim)
+					F.ODBC.Con!rstSel.Set!HEAT(V.passed.000064.Trim)
+					F.ODBC.Con!rstSel.Set!SERIAL(V.Passed.000065.trim)
+					F.ODBC.Con!rstSel.Set!QTY(1)
+					F.ODBC.Con!rstSel.Set!LENGTH(V.Local.sLength.Trim)
+					F.ODBC.Con!rstSel.Set!LENGTH_UM("in")
+					F.ODBC.Con!rstSel.Set!WIDTH(V.local.sWidth.Trim)
+					F.ODBC.Con!rstSel.Set!WIDTH_UM("in")
+					F.ODBC.Con!rstSel.Set!TOTAL(V.Local.fTotal.Trim)
+					F.ODBC.Con!rstSel.Set!TOTAL_UM("sf")
+
+					F.Intrinsic.Control.If(V.Local.sDFARtxt(0),=,1)
+							F.ODBC.Con!rstSel.Set!DFAR("X")
+					F.Intrinsic.Control.Else
+							F.ODBC.Con!rstSel.Set!DFAR("")
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Local.sDFARtxt(1),=,1)
+							F.ODBC.Con!rstSel.Set!USMELT("X")
+					F.Intrinsic.Control.Else
+							F.ODBC.Con!rstSel.Set!USMELT("")
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Local.sDFARtxt(2),=,1)
+							F.ODBC.Con!rstSel.Set!USMFG("X")
+					F.Intrinsic.Control.Else
+							F.ODBC.Con!rstSel.Set!USMFG("")
+					F.Intrinsic.Control.Endif
+
+				F.ODBC.Con!rstSel.Update
+			F.ODBC.Con!rstSel.Close
+
+		F.Intrinsic.Control.Next(V.Local.iCount)
+	F.Intrinsic.Control.EndIf
+
+F.ODBC.Con!rstPO.Close
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.DeleteFile(V.Local.sDFAR)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+Program.Sub.ScreenSaveOLD.End
+
+
+program.sub.dropdownlistlength_click.start
+
+
+Gui.Form1.txtUML.Text(V.Screen.Form1!dropdownlistLength.Text)
+
+program.sub.dropdownlistlength_click.end
+
+
+program.sub.dropdownlistwidth_click.start
+
+
+
+Gui.Form1.txtUMW.Text(V.Screen.Form1!dropdownlistWidth.Text)
+
+program.sub.dropdownlistwidth_click.end
+
+
+Program.Sub.Item_Update.Start
+
+V.Local.sSel.Declare(String)
+V.Local.sSelA.Declare(String)
+V.Local.sSelB.Declare(String)
+V.Local.sSelC.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sLocn.Declare(String)
+V.Local.sLot.Declare(String)
+V.Local.sBin.Declare(String)
+V.Local.sheat.Declare(String)
+V.Local.iQty.Declare(Long)
+V.Local.fTotal.Declare(Float)
+V.Local.sTotal.Declare(String)
+V.Local.sLength.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sSerial.Declare(String)
+V.Local.sPO.Declare(String)
+V.Local.sItmTotal.Declare(String)
+V.Local.sDecimal.Declare(String)
+
+
+V.Local.PP.Declare(String)
+V.Local.Plo.Declare(String)
+V.Local.plc.Declare(String)
+V.Local.pB.Declare(String)
+V.Local.pH.Declare(String)
+'-------------------------------------------------------------------------------------------------------------------
+V.Local.sSerial.Set("")
+
+F.Intrinsic.String.LPad(V.Passed.000002,"0",7,V.Local.sPO)
+
+F.Intrinsic.String.Concat("select * from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"' and PO='",V.Local.sPO,"'",V.Local.sSelA)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstX",V.Local.sSelA)
+	F.Intrinsic.Control.DoUntil(V.ODBC.Con!rstX.EOF,=,True)
+		V.Local.sPart.Set(V.ODBC.Con!rstX.FieldValTrim!PART)
+		V.Local.sLocn.Set(V.ODBC.Con!rstX.FieldValTrim!LOCN)
+'		V.Local.sLot.set(V.ODBC.Con!rstX.FieldValTrim!LOT)
+'		V.Local.sBin.Set(V.ODBC.Con!rstX.FieldValTrim!BIN)
+'		V.Local.sheat.Set(V.ODBC.Con!rstX.FieldValTrim!HEAT)
+		V.Local.iQty.Set(V.ODBC.Con!rstX.FieldValFloat!QTY)
+		V.Local.fTotal.Set(V.ODBC.Con!rstX.FieldValFloat!TOTAL)
+		F.Intrinsic.String.Format(V.ODBC.Con!rstX.FieldValFloat!TOTAL,"0.0000",V.Local.sTotal)
+			F.Intrinsic.String.Split(V.Local.sTotal,".",V.Local.sItmTotal)
+				F.Intrinsic.String.Left(V.Local.sItmTotal(1),3,V.Local.sDecimal)
+				F.Intrinsic.String.Concat(V.Local.sItmTotal(0),".",V.Local.sDecimal,V.Local.sItmTotal(0))
+			
+		F.Intrinsic.String.Format(V.ODBC.Con!rstX.FieldValFloat!LENGTH,"0.0000",V.Local.sLength)
+		F.Intrinsic.String.Format(V.ODBC.Con!rstX.FieldValFloat!WIDTH,"0.0000",V.Local.sWidth)
+
+'		F.Intrinsic.String.Concat("select SERIAL_NUMBER,QUANTITY from ITEM_MASTER where not exists(select * from ATG_3326_ITMST_LEN_WIDTH where SERIAL_NUMBER=SERIAL) and SERIAL_NUMBER<>'' and PART='",V.Local.sPart.Trim,"' and BIN='",V.Local.sBin.Trim,"' and PO_NUMBER='",V.ODBC.Con!rstX.FieldValTrim!PO,"' and PO_LINE_NO='",V.ODBC.Con!rstX.FieldValTrim!PO_LINE,"' and QUANTITY like '%",V.Local.sItmTotal(0),"%' order by SERIAL_NUMBER",V.Local.sSelB)
+		F.Intrinsic.String.Concat("select SERIAL_NUMBER,QUANTITY,LOT,BIN,HEAT from ITEM_MASTER where not exists(select * from ATG_3326_ITMST_LEN_WIDTH where SERIAL_NUMBER=SERIAL) and SERIAL_NUMBER<>'' and PART='",V.Local.sPart.Trim,"' and PO_NUMBER='",V.ODBC.Con!rstX.FieldValTrim!PO,"' and PO_LINE_NO='",V.ODBC.Con!rstX.FieldValTrim!PO_LINE,"' and QUANTITY like '%",V.Local.sItmTotal(0),"%' order by SERIAL_NUMBER",V.Local.sSelB)
+		F.ODBC.Connection!Con.OpenRecordsetRO("rstSelB",V.Local.sSelB)
+			F.Intrinsic.Control.If(V.ODBC.Con!rstSelB.EOF,=,False)
+				V.Local.sLot.set(V.ODBC.Con!rstSelB.FieldValTrim!LOT)
+				V.Local.sBin.Set(V.ODBC.Con!rstSelB.FieldValTrim!BIN)
+				V.Local.sheat.Set(V.ODBC.Con!rstSelB.FieldValTrim!HEAT)
+				V.Local.sSerial.Set(V.ODBC.Con!rstSelB.FieldValTrim!SERIAL_NUMBER)
+				V.Local.sTotal.Set(V.ODBC.Con!rstSelB.FieldVal!QUANTITY)
+'			F.Intrinsic.Control.endif
+'		F.ODBC.Con!rstSelB.Close
+'
+				F.ODBC.Connection!Con.OpenRecordsetRW("rstSel","select * from ATG_3326_ITMST_LEN_WIDTH")
+					F.ODBC.Con!rstSel.AddNew
+						F.ODBC.Con!rstSel.Set!PART(V.Local.sPart.Trim)
+						F.ODBC.Con!rstSel.Set!LOCN(V.Local.sLocn.Trim)
+						F.ODBC.Con!rstSel.Set!LOT(V.Local.sLot.Trim)
+						F.ODBC.Con!rstSel.Set!BIN(V.Local.sBin.Trim)
+						F.ODBC.Con!rstSel.Set!HEAT(V.Local.sheat.Trim)
+						F.ODBC.Con!rstSel.Set!SERIAL(V.Local.sSerial.Trim)
+		'				F.ODBC.Con!rstSel.Set!QTY(V.Local.iQty)
+						F.ODBC.Con!rstSel.Set!QTY(1)
+						F.ODBC.Con!rstSel.Set!LENGTH(V.Local.sLength)
+						F.ODBC.Con!rstSel.Set!LENGTH_UM("in")
+						F.ODBC.Con!rstSel.Set!WIDTH(V.Local.sWidth)
+						F.ODBC.Con!rstSel.Set!WIDTH_UM("in")
+						F.ODBC.Con!rstSel.Set!TOTAL(V.Local.sTotal)
+						F.ODBC.Con!rstSel.Set!TOTAL_UM("sf")
+						F.ODBC.Con!rstSel.Set!DFAR(V.ODBC.Con!rstX.FieldValTrim!DFAR)
+						F.ODBC.Con!rstSel.Set!USMELT(V.ODBC.Con!rstX.FieldValTrim!USMELT)
+						F.ODBC.Con!rstSel.Set!USMFG(V.ODBC.Con!rstX.FieldValTrim!USMFG)
+					F.ODBC.Con!rstSel.Update
+				F.ODBC.Con!rstSel.Close
+
+			F.Intrinsic.Control.endif
+		F.ODBC.Con!rstSelB.Close
+
+
+	F.ODBC.Con!rstX.MoveNext
+	F.Intrinsic.Control.Loop
+F.ODBC.Con!rstX.Close
+
+
+
+F.Intrinsic.String.Concat("delete from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"'",V.Local.sSel)
+F.ODBC.Connection!Con.Execute(V.Local.sSel)
+
+
+
+Program.Sub.Item_Update.End
+
+
+Program.Sub.Roll_Verification.Start
+
+V.Local.sSel.Declare(String)
+V.Local.sDimA.Declare(String)
+V.Local.sDimB.Declare(String)
+
+V.Local.fTot.Declare(Float)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+
+
+F.Intrinsic.String.Concat("select ROLL from INVENTORY_MST3  where PART='",V.Passed.000001,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstQ",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstQ.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.Con!rstQ.FieldValTrim!ROLL,=,"Y")
+
+Gui.Form1.dropdownlistLength.AddItem("in")
+Gui.Form1.dropdownlistLength.AddItem("ft")
+Gui.Form1.dropdownlistLength.AddItem("M")
+
+Gui.Form1.dropdownlistWidth.AddItem("in")
+Gui.Form1.dropdownlistWidth.AddItem("ft")
+Gui.Form1.dropdownlistWidth.AddItem("M")
+
+F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.009000,"'and left(PO_LINE,3)='",V.Passed.009001,"'",V.Local.sSel)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstSel.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.Con!rstSel.FieldValTrim!LENGTH_UM,=,"in")
+			V.Local.fLength.Set(V.ODBC.Con!rstSel.FieldValTrim!LENGTH)
+		F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstSel.FieldValTrim!LENGTH_UM,=,"ft")
+			F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstSel.FieldValTrim!LENGTH,"Ft2In",V.Local.fLength)
+		F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstSel.FieldValTrim!LENGTH_UM,=,"M")
+			F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstSel.FieldValTrim!LENGTH,"M2In",V.Local.fLength)
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.If(V.ODBC.Con!rstSel.FieldValTrim!WIDTH_UM,=,"in")
+			V.local.fWidth.Set(V.ODBC.Con!rstSel.FieldValTrim!WIDTH)
+		F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstSel.FieldValTrim!WIDTH_UM,=,"ft")
+			F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstSel.FieldValTrim!WIDTH,"Ft2In",V.local.fWidth)
+		F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstSel.FieldValTrim!WIDTH_UM,=,"M")
+			F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstSel.FieldValTrim!WIDTH,"M2In",V.local.fWidth)
+		F.Intrinsic.Control.EndIf
+
+
+
+'		Gui.Form1.txtUML.Text("in")
+'		Gui.Form1.txtUMW.Text("in")
+		Gui.Form1.txtUML.Text(V.ODBC.Con!rstSel.FieldValTrim!LENGTH_UM)
+		Gui.Form1.txtUMW.Text(V.ODBC.Con!rstSel.FieldValTrim!WIDTH_UM)
+'		Gui.Form1.txtLen.Text(V.Local.fLength)
+'		Gui.Form1.txtWidth.Text(V.local.fWidth)
+		Gui.Form1.txtLen.Text(V.ODBC.Con!rstSel.FieldValTrim!LENGTH)
+		Gui.Form1.txtWidth.Text(V.ODBC.Con!rstSel.FieldValTrim!WIDTH)
+		Gui.Form1.txtTotal.Text(V.ODBC.Con!rstSel.FieldValTrim!TOTAL)
+		Gui.Form1.txtQty.Text(V.ODBC.Con!rstSel.FieldValTrim!QTY)
+
+	F.Intrinsic.Control.Else
+		Gui.Form1.txtQty.Text("1")
+		Gui.Form1.txtUML.Text("")
+		Gui.Form1.txtUMW.Text("")
+		Gui.Form1.txtLen.Text("")
+		Gui.Form1.txtWidth.Text("")
+		Gui.Form1.txtTotal.Text("")
+
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstSel.Close
+
+F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Passed.000001,"'",V.Local.sSel)
+F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!PROP_CODE,<>,"")
+			V.Local.sDima.Set(V.ODBC.con!rstB.FieldValTrim!DIMENSION_TITLE_1)
+			V.Local.sDimB.Set(V.ODBC.con!rstB.FieldValTrim!DIMENSION_TITLE_2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.con!rstB.Close
+
+gui.Form1.lblDim1.create(label,V.Local.sDimA,True,930,255,1,2220,1390,True,0,Arial,8,-2147483633,0)
+gui.Form1.lblDim2.create(label,V.Local.sDimB,True,930,255,1,2220,2345,True,0,Arial,8,-2147483633,0)
+
+
+Gui.Form1..AlwaysOnTop(true)
+
+F.Intrinsic.Control.Do
+	F.Intrinsic.API.SetWindowPositions(V.Caller.Handle,V.Screen.Form1.HWnd,3)
+F.Intrinsic.Control.Loop
+
+Gui.Form1..Show
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+F.ODBC.Con!rstQ.Close
+
+Program.Sub.Roll_Verification.End
+
+
+Program.Sub.Inches.Start
+
+
+
+V.Local.sTotal.Declare(String)
+
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTotal.Declare(Float)
+
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,=,"ft")
+	F.Intrinsic.Math.Div(V.Screen.Form1!txtLen.Text,12,V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"in")
+	V.Local.fLength.Set(V.Screen.Form1!txtLen.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtLen.Text,"M2FT",V.Local.fLength)
+	F.Intrinsic.Math.Div(V.Local.fLength,12,V.Local.fLength)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,=,"ft")
+	F.Intrinsic.Math.Div(V.Screen.Form1!txtWidth.Text,12,V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"in")
+	V.Local.fWidth.Set(V.Screen.Form1!txtWidth.Text)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"M")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtWidth.Text,"M2FT",V.Local.fWidth)
+	F.Intrinsic.Math.Div(V.Local.fWidth,12,V.Local.fWidth)
+F.Intrinsic.Control.EndIf
+
+
+	
+
+
+Program.Sub.Inches.End
+
+
+Program.Sub.ScreenSave.Start
+V.Local.sPOLine.Declare(String)
+V.Local.sSel.Declare(String)
+V.Local.sSelX.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sPOsel.Declare(String)
+V.Local.stempQty.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sLength.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.sValue.Declare(String)
+V.Local.sTotal.Declare(String)
+V.Local.sDFAR.Declare(String)
+V.Local.sDFARtxt.Declare(String)
+V.Local.sLot.Declare(String)
+V.Local.sBin.Declare(String)
+V.Local.sHeat.Declare(String)
+V.Local.sSerial.Declare(String)
+
+V.Local.iQty.Declare(Long)
+V.Local.iCount.Declare(Long)
+
+V.Local.fTotal.Declare(Float)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fQty.Declare(Float)
+
+V.Local.bExists.Declare(Boolean)
+
+'009000=po
+'009001=line
+'00071=po qty
+'00072=inv qty
+'000061=lot
+'000062=bin
+'000064=heat
+'000065=serial
+'000071=PO qty
+
+'F.Intrinsic.String.Concat("delete from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"'",V.Local.sSel)
+'F.ODBC.Connection!Con.Execute(V.Local.sSel)
+
+V.Local.sLot.Set(V.Passed.000061)
+V.Local.sBin.Set(V.Passed.000062)
+V.Local.sHeat.Set(V.Passed.000064)
+V.Local.sSerial.Set(V.Passed.000065)
+
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\qty.txt",V.Local.stempQty)
+F.Intrinsic.File.Exists(V.Local.stempQty,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.File2String(V.Local.stempQty,V.Local.sQty)
+			V.Passed.009002.Set(V.Local.sQty)
+				F.Intrinsic.Control.If(V.Local.sQty,>,0)
+					F.Intrinsic.Math.Div(V.Passed.000071,V.Local.sQty,V.Local.fQty)
+				F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.DeleteFile(V.Local.stempQty)
+	F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.String.RPad(V.Passed.009001,"0",4,V.Local.sPOLine)
+
+F.Intrinsic.String.Concat("select * from ATG_3326_TEMP_PO_TXT where Part='",V.Passed.000001,"'and LOT='' and BIN='' and HEAT='' ",V.Local.sPOsel)
+F.ODBC.Connection!Con.OpenRecordsetRW("rstPO",V.Local.sPOsel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstPO.EOF,=,False)
+			F.ODBC.Con!rstPO.Set!LOT(V.Passed.000061)
+			F.ODBC.Con!rstPO.Set!BIN(V.Passed.000062)
+			F.ODBC.Con!rstPO.Set!HEAT(V.Passed.000064)
+		F.ODBC.Con!rstPO.Update
+	F.Intrinsic.Control.EndIf
+F.ODBC.Con!rstPO.Close
+
+F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.009000,"'and PO_LINE='",V.Local.sPOLine,"'",V.Local.sPOsel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstPO",V.Local.sPOsel)
+	F.Intrinsic.Control.If(V.ODBC.Con!rstPO.EOF,=,False)
+
+			F.Intrinsic.Control.If(V.ODBC.Con!rstPO.FieldValTrim!LENGTH_UM,=,"ft")
+				F.Intrinsic.Math.mult(V.ODBC.Con!rstPO.FieldValTrim!LENGTH,12,V.Local.fLength)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!LENGTH_UM,=,"in")
+				V.Local.fLength.Set(V.ODBC.Con!rstPO.FieldValTrim!LENGTH)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!LENGTH_UM,=,"M")
+				F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstPO.FieldValTrim!LENGTH,"M2FT",V.Local.fLength)
+				F.Intrinsic.Math.mult(V.Local.fLength,12,V.Local.fLength)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.If(V.ODBC.Con!rstPO.FieldValTrim!WIDTH_UM,=,"ft")
+				F.Intrinsic.Math.mult(V.ODBC.Con!rstPO.FieldValTrim!WIDTH,12,V.Local.fWidth)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!WIDTH_UM,=,"in")
+				V.Local.fWidth.Set(V.ODBC.Con!rstPO.FieldValTrim!WIDTH)
+			F.Intrinsic.Control.ElseIf(V.ODBC.Con!rstPO.FieldValTrim!WIDTH_UM,=,"M")
+				F.Intrinsic.Math.UnitConversion(V.ODBC.Con!rstPO.FieldValTrim!WIDTH,"M2FT",V.Local.fWidth)
+				F.Intrinsic.Math.mult(V.Local.fWidth,12,V.Local.fWidth)
+			F.Intrinsic.Control.EndIf
+
+				F.Intrinsic.String.Format(V.Local.fLength,"0.0000",V.Local.sLength)
+				F.Intrinsic.String.Format(V.Local.fWidth,"0.0000",V.Local.sWidth)
+
+		F.Intrinsic.String.Concat("select count(PART) as C  from ATG_3326_ITMST_LEN_WIDTH where PART='",V.Passed.000001,"'and LOCN='",V.Passed.000002,"'and LOT='",V.Passed.000061,"'and BIN='",V.Passed.000062,"'and HEAT='",V.Passed.000064,"'and SERIAL =''",V.Local.sSel)
+		F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+			V.Local.iCount.Set(V.ODBC.Con!rstSel.FieldVal!C)
+		F.ODBC.Con!rstSel.Close
+
+		V.Local.iQty.Set(V.ODBC.Con!rstPO.FieldValFLOAT!QTY)
+		V.Local.fTotal.Set(V.ODBC.Con!rstPO.FieldValFloat!TOTAL)
+
+		F.Intrinsic.Math.Div(V.Local.fTotal,V.Local.iQty,V.Local.fTotal)
+
+
+		F.Intrinsic.String.Concat(V.System.Temp,"\DFAR.txt",V.Local.sDFAR)
+		F.Intrinsic.File.Exists(V.Local.sDFAR,V.Local.bExists)
+	
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.File2String(V.Local.sDFAR,V.Local.sDFARtxt)
+		F.Intrinsic.String.Split(V.Local.sDFARtxt,",",V.Local.sDFARtxt)
+
+		F.Intrinsic.Control.For(V.Local.iCount,1,V.Local.iQty,1)
+			F.Intrinsic.String.Concat("select * from ATG_3326_TMP_PO_RCPT where TRMNL='",V.Caller.Terminal,"' and PART='",V.Passed.000001.Trim,"'and PO='",V.Passed.009000,"' and PO_LINE='",V.Local.sPOLine,"'",V.Local.sSel)
+			F.ODBC.Connection!Con.OpenRecordsetRW("rstSel",V.Local.sSel)
+				F.ODBC.Con!rstSel.AddNew
+					F.ODBC.Con!rstSel.Set!PO(V.Passed.009000)
+					F.ODBC.Con!rstSel.Set!PO_LINE(V.Local.sPOLine)
+					F.ODBC.Con!rstSel.Set!TRMNL(V.Caller.Terminal)
+					F.ODBC.Con!rstSel.Set!PART(V.Passed.000001.Trim)
+					F.ODBC.Con!rstSel.Set!LOCN(V.passed.000002.Trim)
+					F.ODBC.Con!rstSel.Set!LOT(V.passed.000061.Trim)
+					F.ODBC.Con!rstSel.Set!BIN(V.passed.000062.Trim)
+					F.ODBC.Con!rstSel.Set!HEAT(V.passed.000064.Trim)
+					F.ODBC.Con!rstSel.Set!SERIAL(V.Passed.000065.trim)
+					F.ODBC.Con!rstSel.Set!QTY(V.Local.fQty)
+					F.ODBC.Con!rstSel.Set!LENGTH(V.Local.sLength.Trim)
+					F.ODBC.Con!rstSel.Set!LENGTH_UM("in")
+					F.ODBC.Con!rstSel.Set!WIDTH(V.local.sWidth.Trim)
+					F.ODBC.Con!rstSel.Set!WIDTH_UM("in")
+					F.ODBC.Con!rstSel.Set!TOTAL(V.Local.fTotal.Trim)
+					F.ODBC.Con!rstSel.Set!TOTAL_UM("sf")
+
+					F.Intrinsic.Control.If(V.Local.sDFARtxt(0),=,1)
+							F.ODBC.Con!rstSel.Set!DFAR("X")
+					F.Intrinsic.Control.Else
+							F.ODBC.Con!rstSel.Set!DFAR("")
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Local.sDFARtxt(1),=,1)
+							F.ODBC.Con!rstSel.Set!USMELT("X")
+					F.Intrinsic.Control.Else
+							F.ODBC.Con!rstSel.Set!USMELT("")
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Local.sDFARtxt(2),=,1)
+							F.ODBC.Con!rstSel.Set!USMFG("X")
+					F.Intrinsic.Control.Else
+							F.ODBC.Con!rstSel.Set!USMFG("")
+					F.Intrinsic.Control.Endif
+
+				F.ODBC.Con!rstSel.Update
+			F.ODBC.Con!rstSel.Close
+
+		F.Intrinsic.Control.Next(V.Local.iCount)
+	F.Intrinsic.Control.EndIf
+
+F.ODBC.Con!rstPO.Close
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		F.Intrinsic.File.DeleteFile(V.Local.sDFAR)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Debug.Stop
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+
+Program.Sub.ScreenSave.End
+
+
+Program.Sub.Print.Start
+
+V.Local.ssel.Declare(String)
+V.Local.sSelB.Declare(String)
+V.Local.fQty.Declare(Float)
+F.Intrinsic.Debug.InvokeDebugger
+F.Intrinsic.Debug.Stop
+
+
+F.Intrinsic.String.Concat("select * from PO_Recpt_Label where Trmnl='",V.Caller.Terminal,"' and Rptid='002818'",V.Local.ssel)
+F.ODBC.Connection!Con.OpenRecordsetRO("rstSel",V.Local.ssel)
+	F.Intrinsic.Control.DoUntil(V.ODBC.Con!rstSel.EOF,=,True)
+		F.Intrinsic.Math.Round(V.ODBC.Con!rstSel.FieldValFloat!Label_Qty,3,V.Local.fQty)
+
+		F.Intrinsic.String.Concat("select * from ATG_3326_Tmp_PO_Rcpt where PO='",V.ODBC.Con!rstSel.FieldValTrim!PO,"' and PO_Line='",V.ODBC.Con!rstSel.FieldValTrim!Line,"' and Part='",V.ODBC.Con!rstSel.FieldValTrim!Part,"' and BIN='",V.ODBC.Con!rstSel.FieldValTrim!Bin,"' and round(Total,3)='",V.Local.fQty,"' and serial=''",V.Local.sSelB)
+		F.ODBC.Connection!Con.OpenRecordsetRW("rstSelB",V.Local.sSelB)
+			F.Intrinsic.Control.If(V.ODBC.Con!rstSelB.EOF,=,False)
+				F.ODBC.Con!rstSelB.Set!SERIAL(V.ODBC.Con!rstSel.FieldValTrim!Serial)
+				F.ODBC.Con!rstSelB.Update
+			F.Intrinsic.Control.EndIf
+		F.ODBC.Con!rstSelB.Close
+
+	F.ODBC.Con!rstSel.MoveNext
+	F.Intrinsic.Control.Loop
+F.ODBC.Con!rstSel.Close
+
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+Program.Sub.Print.End
+
+
+
