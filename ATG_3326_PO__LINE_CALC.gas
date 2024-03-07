@@ -1,0 +1,511 @@
+Program.Sub.ScreenSU.Start
+gui.Form1..create
+gui.Form1..caption("PO Line Calculator")
+gui.Form1..size(2730,4860)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,form1_unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(True)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+gui.Form1.txtLen.create(textbox,"",True,930,300,0,1305,980,True,0,Arial,8,-2147483643,1)
+gui.Form1.lbl1.create(label,"Length",True,795,255,1,1305,755,True,0,Arial,8,-2147483633,0)
+gui.Form1.txtWidth.create(textbox,"",True,930,300,0,1305,1910,True,0,Arial,8,-2147483643,1)
+gui.Form1.lbl2.create(label,"Width",True,885,255,1,1305,1715,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl.create(label,"Quantity",True,855,255,1,190,125,True,0,Arial,8,-2147483633,0)
+gui.Form1.cmdCalc.create(button)
+gui.Form1.cmdCalc.caption("Calculate")
+gui.Form1.cmdCalc.visible(True)
+gui.Form1.cmdCalc.size(855,375)
+gui.Form1.cmdCalc.zorder(0)
+gui.Form1.cmdCalc.position(190,3540)
+gui.Form1.cmdCalc.enabled(True)
+gui.Form1.cmdCalc.fontname("Arial")
+gui.Form1.cmdCalc.fontsize(8)
+gui.Form1.cmdCalc.event(click,cmdcalc_click)
+gui.Form1.txtTotal.create(textbox,"",True,2025,300,0,190,2975,False,0,Arial,8,-2147483643,1)
+gui.Form1.lbl4.create(label,"Total Quantity (square ft)",True,1935,255,1,200,2735,True,0,Arial,8,-2147483633,0)
+gui.Form1.cmdSave.create(button)
+gui.Form1.cmdSave.caption("Save")
+gui.Form1.cmdSave.visible(True)
+gui.Form1.cmdSave.size(855,375)
+gui.Form1.cmdSave.zorder(0)
+gui.Form1.cmdSave.position(1375,3540)
+gui.Form1.cmdSave.enabled(True)
+gui.Form1.cmdSave.fontname("Arial")
+gui.Form1.cmdSave.fontsize(8)
+gui.Form1.cmdSave.event(click,cmdsave_click)
+gui.Form1.txtQty.create(textbox,"",True,930,300,0,190,320,True,0,Arial,8,-2147483643,1)
+gui.Form1.dropdownlistLength.create(dropdownlist)
+gui.Form1.dropdownlistLength.visible(True)
+gui.Form1.dropdownlistLength.size(930,330)
+gui.Form1.dropdownlistLength.zorder(0)
+gui.Form1.dropdownlistLength.position(190,980)
+gui.Form1.dropdownlistLength.enabled(True)
+gui.Form1.dropdownlistLength.fontname("Arial")
+gui.Form1.dropdownlistLength.fontsize(8)
+gui.Form1.dropdownlistLength.event(click,dropdownlistlength_click)
+gui.Form1.lbl5.create(label,"UM",True,645,255,1,200,755,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl6.create(label,"UM",True,465,255,1,190,1715,True,0,Arial,8,-2147483633,0)
+gui.Form1.dropdownlistWidth.create(dropdownlist)
+gui.Form1.dropdownlistWidth.visible(True)
+gui.Form1.dropdownlistWidth.size(930,330)
+gui.Form1.dropdownlistWidth.zorder(0)
+gui.Form1.dropdownlistWidth.position(190,1910)
+gui.Form1.dropdownlistWidth.enabled(True)
+gui.Form1.dropdownlistWidth.fontname("Arial")
+gui.Form1.dropdownlistWidth.fontsize(8)
+gui.Form1.dropdownlistWidth.event(click,dropdownlistwidth_click)
+gui.Form1.txtUML.create(textbox,"",True,645,300,0,200,980,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtUMW.create(textbox,"",True,645,300,0,200,1910,True,0,Arial,8,-2147483643,1)
+gui.Form1.lblDIM1.create(label,"",True,885,255,1,1350,1300,True,0,Arial,8,-2147483633,0)
+gui.Form1.lblDIM2.create(label,"",True,885,255,1,1330,2215,True,0,Arial,8,-2147483633,0)
+gui.Form1.txtQty.tabstop(True)
+gui.Form1.txtQty.tabindex(1)
+gui.Form1.txtLen.tabstop(True)
+gui.Form1.txtLen.tabindex(2)
+gui.Form1.txtWidth.tabstop(True)
+gui.Form1.txtWidth.tabindex(3)
+gui.Form1.cmdCalc.tabstop(True)
+gui.Form1.cmdCalc.tabindex(4)
+gui.Form1.cmdSave.tabstop(True)
+gui.Form1.cmdSave.tabindex(5)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+
+F.ODBC.Connection!conA.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+
+
+V.Local.sSel.Declare(String)
+V.Local.sSaveTmp.Declare(String)
+V.Local.sDima.Declare(String)
+V.Local.sDimB.Declare(String)
+
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTot.Declare(Float)
+V.Local.fQty.Declare(Float)
+V.Local.lQty.Declare(Long)
+
+V.Local.bRoll.Declare(Boolean)
+V.Local.sPart.Declare(String)
+
+'populate Hook....change text on [Script 1] Button
+F.Intrinsic.Control.If(V.Caller.Hook,=,17050)
+	V.Passed.000097.Set("UM Calculator")
+
+	F.Intrinsic.String.Concat("select ROLL from INVENTORY_MST3 where PART='",V.Passed.000008,"'",V.Local.sSel)
+	F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+			F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldValTrim!ROLL,=,"Y")
+				V.Local.bRoll.set(True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.endif
+	F.ODBC.conA!rstB.Close
+
+	F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Passed.000008,"'",V.Local.sSel)
+	F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+			F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldValTrim!PROP_CODE,<>,"")
+				V.Local.sDima.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_1)
+				V.Local.sDimB.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_2)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.ODBC.conA!rstB.Close
+
+	gui.Form1.lblDIM1.create(label,V.Local.sDima,True,885,255,1,1350,1300,True,0,Arial,8,-2147483633,0)
+	gui.Form1.lblDIM2.create(label,V.Local.sDimB,True,885,255,1,1330,2215,True,0,Arial,8,-2147483633,0)
+
+	F.Intrinsic.Control.If(V.Local.bRoll,=,True)
+		F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.008002,"'and PO_LINE='",V.passed.008001,"'",V.Local.sSel)
+		F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+			F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+				V.Local.fLength.Set(V.ODBC.conA!rstB.FieldValTrim!LENGTH)
+				V.Local.fWidth.Set(V.ODBC.conA!rstB.FieldValTrim!WIDTH)
+				V.Local.fTot.Set(V.ODBC.conA!rstB.FieldValTrim!TOTAL)
+				Gui.Form1.txtQty.Text(V.ODBC.conA!rstB.FieldValTrim!QTY)
+				Gui.Form1.txtUML.Text(V.ODBC.conA!rstB.FieldValTrim!LENGTH_UM)
+				Gui.Form1.txtUMW.Text(V.ODBC.conA!rstB.FieldValTrim!WIDTH_UM)
+				Gui.Form1.txtLen.Text(V.Local.fLength)
+'				Gui.Form1.txtQty.Text(V.Local.lQty)
+				Gui.Form1.txtTotal.Text(V.Local.fTot)
+				Gui.Form1.txtWidth.Text(V.Local.fWidth)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.conA!rstB.Close
+
+		Gui.Form1.dropdownlistLength.AddItem("in")
+		Gui.Form1.dropdownlistLength.AddItem("ft")
+		Gui.Form1.dropdownlistLength.AddItem("M")
+
+		Gui.Form1.dropdownlistWidth.AddItem("in")
+		Gui.Form1.dropdownlistWidth.AddItem("ft")
+		Gui.Form1.dropdownlistWidth.AddItem("M")
+
+		Gui.Form1..AlwaysOnTop(true)
+		F.Intrinsic.Control.Do
+			F.Intrinsic.API.SetWindowPositions(V.Caller.Handle,V.Screen.Form1.HWnd,3)
+		F.Intrinsic.Control.Loop
+
+		Gui.Form1..Show
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(Form1_unload)
+	F.Intrinsic.Control.EndIf
+
+	
+
+'-------script1 button---------------------------------
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,17160)
+
+	Gui.Form1.dropdownlistLength.AddItem("in")
+	Gui.Form1.dropdownlistLength.AddItem("ft")
+	Gui.Form1.dropdownlistLength.AddItem("M")
+
+	Gui.Form1.dropdownlistWidth.AddItem("in")
+	Gui.Form1.dropdownlistWidth.AddItem("ft")
+	Gui.Form1.dropdownlistWidth.AddItem("M")
+
+	F.Intrinsic.String.RPad(V.Passed.000008," ",17,V.Local.sPart)
+
+	F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'",V.Local.sSel)
+	F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+			V.Local.fLength.Set(V.ODBC.conA!rstB.FieldValTrim!LENGTH)
+			V.Local.fWidth.Set(V.ODBC.conA!rstB.FieldValTrim!WIDTH)
+			V.Local.fTot.Set(V.ODBC.conA!rstB.FieldValTrim!TOTAL)
+			F.Intrinsic.Math.Mult(V.Local.fTot,144,V.Local.fQty)
+			F.Intrinsic.Math.Div(V.Local.fQty,V.Local.fLength,V.Local.fQty)
+			F.Intrinsic.Math.Div(V.Local.fQty,V.Local.fWidth,V.Local.lQty)
+			Gui.Form1.txtLen.Text(V.Local.fLength)
+			Gui.Form1.txtQty.Text(V.ODBC.conA!rstB.FieldValTrim!QTY)
+			Gui.Form1.txtTotal.Text(V.Local.fTot)
+			Gui.Form1.txtWidth.Text(V.Local.fWidth)
+			Gui.Form1.txtUML.Text(V.ODBC.conA!rstB.FieldValTrim!LENGTH_UM)
+			Gui.Form1.txtUMW.Text(V.ODBC.conA!rstB.FieldValTrim!WIDTH_UM)
+		F.Intrinsic.Control.Else
+			Gui.Form1.txtQty.Text("1")
+			Gui.Form1.txtUML.Text("")
+			Gui.Form1.txtUMW.Text("")
+			Gui.Form1.txtLen.Text("")
+			Gui.Form1.txtWidth.Text("")
+			Gui.Form1.txtTotal.Text("")
+		F.Intrinsic.Control.EndIf
+	F.ODBC.conA!rstB.Close
+
+	F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Passed.000008,"'",V.Local.sSel)
+	F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+			F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldValTrim!PROP_CODE,<>,"")
+				V.Local.sDima.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_1)
+				V.Local.sDimB.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_2)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.ODBC.conA!rstB.Close
+
+	gui.Form1.lblDIM1.create(label,V.Local.sDima,True,885,255,1,1350,1300,True,0,Arial,8,-2147483633,0)
+	gui.Form1.lblDIM2.create(label,V.Local.sDimB,True,885,255,1,1330,2215,True,0,Arial,8,-2147483633,0)
+
+	Gui.Form1..AlwaysOnTop(true)
+	F.Intrinsic.Control.Do
+		F.Intrinsic.API.SetWindowPositions(V.Caller.Handle,V.Screen.Form1.HWnd,3)
+	F.Intrinsic.Control.Loop
+
+	Gui.Form1..Show
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(Form1_unload)
+
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+program.sub.cmdcalc_click.start
+
+'off [OK] button on calculator screen; calculate sq unit of measure for entered measurments
+
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTotal.Declare(Float)
+V.Local.sTotal.Declare(String)
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,<>,"")
+	F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,<>,"")
+
+		F.Intrinsic.Control.If(V.Screen.Form1!txtQty.Text,<>,"")
+			F.Intrinsic.Control.If(V.Screen.Form1!txtLen.Text,<>,"")
+				F.Intrinsic.Control.If(V.Screen.Form1!txtWidth.Text,<>,"")
+
+					F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,=,"ft")
+						V.Local.fLength.Set(V.Screen.Form1!txtLen.Text)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"in")
+						F.Intrinsic.Math.Div(V.Screen.Form1!txtLen.Text,12,V.Local.fLength)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"M")
+						F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtLen.Text,"M2FT",V.Local.fLength)
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,=,"ft")
+						V.Local.fWidth.Set(V.Screen.Form1!txtWidth.Text)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"in")
+						F.Intrinsic.Math.Div(V.Screen.Form1!txtWidth.Text,12,V.Local.fWidth)
+					F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"M")
+						F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtWidth.Text,"M2FT",V.Local.fWidth)
+					F.Intrinsic.Control.EndIf
+
+					F.Intrinsic.Math.Mult(V.Screen.Form1!txtQty.Text,V.Local.fLength,V.Local.fWidth,V.Local.fTotal)
+					F.Intrinsic.String.Format(V.Local.fTotal,"0.0000",V.Local.sTotal)
+
+				F.Intrinsic.Control.Else
+					F.Intrinsic.UI.Msgbox("Please enter width")
+				F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Please enter Length")
+			F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Please enter Quantity")
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please enter UM for Width")
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Please enter UM for Length")
+F.Intrinsic.Control.EndIf
+
+
+Gui.Form1.txtTotal.Text(V.Local.sTotal)
+
+
+program.sub.cmdcalc_click.end
+
+program.sub.form1_unload.start
+
+
+F.ODBC.Connection!conA.Close
+F.Intrinsic.Control.End
+
+program.sub.form1_unload.end
+
+program.sub.cmdsave_click.start
+
+V.Local.iSeq.Declare(Long)
+
+V.Local.sSel.Declare(String)
+V.Local.sDel.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sPoTxt.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sDimA.Declare(String)
+V.Local.sDimB.Declare(String)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.lLength.Declare(Long)
+V.Local.lLines.Declare(Long)
+
+V.Local.bExists.Declare(Boolean)
+
+V.Passed.000024.Set(V.Screen.Form1!txtTotal.Text)
+
+F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Passed.000008,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldValTrim!PROP_CODE,<>,"")
+			V.Local.sDima.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_1)
+			V.Local.sDimB.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.conA!rstB.Close
+
+F.Intrinsic.String.Concat("Qty: ",V.Screen.Form1!txtQty.Text," @ ",V.Screen.Form1!txtLen.Text," ",V.Screen.Form1!txtUML.Text," (",V.Local.sDimA.Trim,") x ",V.Screen.Form1!txtWidth.Text," ",V.Screen.Form1!txtUMW.Text," (",V.Local.sDimB.Trim,") = ",V.Screen.Form1!txtTotal.Text," sq ft",V.Local.sPoTxt)
+F.Intrinsic.String.Len(V.Local.sPoTxt,V.Local.lLength)
+F.Intrinsic.String.LimitSplit(V.Local.sPoTxt,30,V.Local.sPoTxt)
+
+
+'F.Intrinsic.String.Concat("select * from PO_TEXT where PURCHASE_ORDER ='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'and PO_TYPE='D'",V.Local.sSel)
+F.Intrinsic.String.Concat("select * from PO_TEXT where PURCHASE_ORDER ='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRW("rstSEQ",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstSEQ.EOF,=,False)
+		F.Intrinsic.String.Concat("delete  from PO_TEXT where PURCHASE_ORDER='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'and PO_TYPE='D'",V.Local.sDel)
+		F.ODBC.Connection!conA.Execute(V.Local.sDel)
+	F.Intrinsic.Control.Endif
+
+	F.Intrinsic.Control.For(V.Local.lLines,V.Local.sPoTxt.LBound,V.Local.sPoTxt.UBound,1)
+		F.Intrinsic.String.Concat("select max(POTXT_SEQ) as SEQ  from PO_TEXT where PURCHASE_ORDER ='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'",V.Local.sSel)
+		F.ODBC.Connection!conA.OpenRecordsetRO("rstSEL",V.Local.sSel)
+			F.Intrinsic.Control.If(V.ODBC.conA!rstSEL.EOF,=,False)
+				V.Local.iSeq.Set(V.ODBC.conA!rstSEL.FieldVal!SEQ)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.conA!rstSEL.Close
+
+		F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+		F.Intrinsic.String.Format(V.Local.iSeq,"000",V.Local.sSeq)
+
+		F.ODBC.conA!rstSEQ.AddNew
+			F.ODBC.conA!rstSEQ.Set!PURCHASE_ORDER(V.Passed.008002)
+			F.ODBC.conA!rstSEQ.Set!PO_SUFFIX(00)
+			F.ODBC.conA!rstSEQ.Set!PO_LINE(V.Passed.008001)
+			F.ODBC.conA!rstSEQ.Set!POTXT_SEQ(V.Local.sSeq)
+			F.ODBC.conA!rstSEQ.Set!FLAG_PO("Y")
+			F.ODBC.conA!rstSEQ.Set!FILLER1("")
+			F.ODBC.conA!rstSEQ.Set!TEXT(V.Local.sPoTxt(v.Local.lLines))
+			F.ODBC.conA!rstSEQ.Set!FILLER("")
+			F.ODBC.conA!rstSEQ.Set!PO_TYPE("D")
+		F.ODBC.conA!rstSEQ.Update
+
+	F.Intrinsic.Control.Next(V.Local.lLines)
+F.ODBC.conA!rstSEQ.Close
+
+
+F.Intrinsic.String.Concat("select * from ATG_3326_PO_LEN_WIDTH where PO='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'and PART='",V.Passed.000008,"'and LOCN='",V.Passed.000011,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRW("rstSEQ",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstSEQ.EOF,=,True)
+		F.ODBC.conA!rstSEQ.AddNew
+			F.ODBC.conA!rstSEQ.Set!PO(V.Passed.008002)
+			F.ODBC.conA!rstSEQ.Set!PO_LINE(V.Passed.008001)
+			F.ODBC.conA!rstSEQ.Set!PART(V.Passed.000008)
+			F.ODBC.conA!rstSEQ.Set!LOCN(V.Passed.000011)
+	F.Intrinsic.Control.EndIf
+			F.ODBC.conA!rstSEQ.Set!QTY(V.Screen.Form1!txtQty.Text)
+			F.ODBC.conA!rstSEQ.Set!LENGTH(V.Screen.Form1!txtLen.Text)
+			F.ODBC.conA!rstSEQ.Set!LENGTH_UM(V.Screen.Form1!txtUML.Text)
+			F.ODBC.conA!rstSEQ.Set!WIDTH(V.Screen.Form1!txtWidth.Text)
+			F.ODBC.conA!rstSEQ.Set!WIDTH_UM(V.Screen.Form1!txtUMW.Text)
+			F.ODBC.conA!rstSEQ.Set!TOTAL(V.Screen.Form1!txtTotal.Text)
+			F.ODBC.conA!rstSEQ.Set!TOTAL_UM("SF")
+		F.ODBC.conA!rstSEQ.Update
+F.ODBC.conA!rstSEQ.Close
+
+F.Intrinsic.Control.CallSub(Meters)
+
+program.sub.cmdsave_click.end
+
+program.sub.dropdownlistlength_click.start
+
+
+Gui.Form1.txtUML.Text(V.Screen.Form1!dropdownlistLength.Text)
+
+program.sub.dropdownlistlength_click.end
+
+program.sub.dropdownlistwidth_click.start
+
+
+
+Gui.Form1.txtUMW.Text(V.Screen.Form1!dropdownlistWidth.Text)
+
+program.sub.dropdownlistwidth_click.end
+
+Program.Sub.Meters.Start
+
+V.Local.iSeq.Declare(Long)
+V.Local.lLength.Declare(Long)
+V.Local.lLines.Declare(Long)
+V.Local.sSel.Declare(String)
+V.Local.sDel.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sPoTxt.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sTotal.Declare(String)
+V.Local.sDimA.Declare(String)
+V.Local.sDimB.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.fLength.Declare(Float)
+V.Local.fWidth.Declare(Float)
+V.Local.fTotal.Declare(Float)
+
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUML.Text,=,"ft")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtLen.Text,"FT2M",V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.Form1!txtLen.Text,12,V.Local.fLength)
+	F.Intrinsic.Math.UnitConversion(V.Local.fLength,"FT2M",V.Local.fLength)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUML.Text,=,"M")
+	V.Local.fLength.Set(V.Screen.Form1!txtLen.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.Form1!txtUMW.Text,=,"ft")
+	F.Intrinsic.Math.UnitConversion(V.Screen.Form1!txtWidth.Text,"FT2M",V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"in")
+	F.Intrinsic.Math.Div(V.Screen.Form1!txtWidth.Text,12,V.Local.fWidth)
+	F.Intrinsic.Math.UnitConversion(V.Local.fWidth,"FT2M",V.Local.fWidth)
+F.Intrinsic.Control.ElseIf(V.Screen.Form1!txtUMW.Text,=,"M")
+	V.Local.fWidth.Set(V.Screen.Form1!txtWidth.Text)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Math.Mult(V.Screen.Form1!txtQty.Text,V.Local.fLength,V.Local.fWidth,V.Local.fTotal)
+F.Intrinsic.String.Format(V.Local.fTotal,"0.0000",V.Local.sTotal)
+
+F.Intrinsic.String.Concat("select PROP_CODE,DIMENSION_TITLE_1,DIMENSION_TITLE_2 from INVENTORY_MST2 inner join RTR_CUT_SHAPE on INVENTORY_MST2.PROP_CODE=RTR_CUT_SHAPE.SHAPE_CODE where PART='",V.Passed.000008,"'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRO("rstB",V.Local.sSel)
+	F.Intrinsic.Control.If(V.ODBC.conA!rstB.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.conA!rstB.FieldValTrim!PROP_CODE,<>,"")
+			V.Local.sDima.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_1)
+			V.Local.sDimB.Set(V.ODBC.conA!rstB.FieldValTrim!DIMENSION_TITLE_2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.ODBC.conA!rstB.Close
+
+F.Intrinsic.String.Concat("Qty: ",V.Screen.Form1!txtQty.Text," @ ",V.Local.fLength," m (",V.Local.sDimA,")  x ",V.Local.fWidth," m (",V.Local.sDimB,") = ",V.Local.sTotal," sq m",V.Local.sPoTxt)
+F.Intrinsic.String.Len(V.Local.sPoTxt,V.Local.lLength)
+F.Intrinsic.String.LimitSplit(V.Local.sPoTxt,30,V.Local.sPoTxt)
+
+F.Intrinsic.String.Concat("select * from PO_TEXT where PURCHASE_ORDER ='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'and PO_TYPE='D'",V.Local.sSel)
+F.ODBC.Connection!conA.OpenRecordsetRW("rstSEQ",V.Local.sSel)
+	F.Intrinsic.Control.For(V.Local.lLines,V.Local.sPoTxt.LBound,V.Local.sPoTxt.UBound,1)
+
+		F.Intrinsic.String.Concat("select max(POTXT_SEQ) as SEQ  from PO_TEXT where PURCHASE_ORDER ='",V.Passed.008002,"'and PO_LINE='",V.Passed.008001,"'",V.Local.sSel)
+		F.ODBC.Connection!conA.OpenRecordsetRO("rstSEL",V.Local.sSel)
+			F.Intrinsic.Control.If(V.ODBC.conA!rstSEL.EOF,=,False)
+				V.Local.iSeq.Set(V.ODBC.conA!rstSEL.FieldVal!SEQ)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.conA!rstSEL.Close
+
+		F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+		F.Intrinsic.String.Format(V.Local.iSeq,"000",V.Local.sSeq)
+
+		F.ODBC.conA!rstSEQ.AddNew
+			F.ODBC.conA!rstSEQ.Set!PURCHASE_ORDER(V.Passed.008002)
+			F.ODBC.conA!rstSEQ.Set!PO_SUFFIX(00)
+			F.ODBC.conA!rstSEQ.Set!PO_LINE(V.Passed.008001)
+			F.ODBC.conA!rstSEQ.Set!POTXT_SEQ(V.Local.sSeq)
+			F.ODBC.conA!rstSEQ.Set!FLAG_PO("Y")
+			F.ODBC.conA!rstSEQ.Set!FILLER1("")
+			F.ODBC.conA!rstSEQ.Set!TEXT(V.Local.sPoTxt(v.Local.lLines))
+			F.ODBC.conA!rstSEQ.Set!FILLER("")
+			F.ODBC.conA!rstSEQ.Set!PO_TYPE("D")
+		F.ODBC.conA!rstSEQ.Update
+
+	F.Intrinsic.Control.Next(V.Local.lLines)
+
+F.ODBC.conA!rstSEQ.Close
+
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+Program.Sub.Meters.End
+
+
